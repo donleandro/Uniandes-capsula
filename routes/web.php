@@ -55,3 +55,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 });
 
+Route::get(
+    '{uri}',
+    '\\'.Pallares\LaravelNuxt\Controllers\NuxtController::class
+)->where('uri', '.*');
