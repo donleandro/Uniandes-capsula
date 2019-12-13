@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-primary navbar-absolute fixed-top text-white">
+<nav class="navbar navbar-expand-lg bg-primary navbar-absolute fixed-top text-success">
   <div class="container">
     <div class="navbar-wrapper">
       <a class="navbar-brand" href="{{ route('home') }}">{{ $title }}</a>
