@@ -15,8 +15,10 @@ Route::get('/', function () {
     return view('inicio');
 });
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('/capsula', function () {
+    return view('welcome');
+});
+Route::get('/homes', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('table-list', function () {
