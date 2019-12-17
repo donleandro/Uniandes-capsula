@@ -1,8 +1,6 @@
 @media all and (max-width: 991px) {
     [class*="navbar-expand-"] > .container,
     [class*="navbar-expand-"] > .container-fluid{
-        padding-left: 15px;
-        padding-right: 15px;
     }
 
     .navbar .navbar-collapse .navbar-nav > li.button-container{
@@ -305,7 +303,7 @@
   }
 }
 @media all and (max-width: 576px){
-  
+
   .main-panel > .content{
     margin-top: 150px;
   }

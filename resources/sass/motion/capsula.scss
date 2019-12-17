@@ -1,3 +1,7 @@
+.container{
+  width:100vw;
+  height: 100vh;
+}
 *,
 *::after,
 *::before {
@@ -89,40 +93,39 @@ a:focus {
 	text-align: center;
 	position: relative;
 	z-index: 1000;
-}
+  &__title {
+  	font-size: 1rem;
+  	margin: 0 0 1rem;
+  	font-weight: normal;
+  }
 
-.frame__title {
-	font-size: 1rem;
-	margin: 0 0 1rem;
-	font-weight: normal;
-}
+  &__links {
+  	display: inline;
+  }
 
-.frame__links {
-	display: inline;
-}
+  &__links a {
+  	display: block;
+  	margin: 0 1rem 0.5rem;
+  }
 
-.frame__links a {
-	display: block;
-	margin: 0 1rem 0.5rem;
-}
+  &__demos {
+  	margin: 1rem 0;
+  }
 
-.frame__demos {
-	margin: 1rem 0;
-}
+  &__demo {
+  	display: block;
+  	padding-top: 0.5rem;
+  }
 
-.frame__demo {
-	display: block;
-	padding-top: 0.5rem;
+  &__info {
+  	color: var(--color-info);
+  }
 }
-
 .frame__demo--current,
 .frame__demo--current:hover {
-	color: var(--color-link-hover);
+  color: var(--color-link-hover);
 }
 
-.frame__info {
-	color: var(--color-info);
-}
 
 .content {
 	display: flex;
@@ -171,10 +174,20 @@ a:focus {
 }
 
 #app {
-	width: 100%;
+	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
 	position: absolute;
+  >video{
+    width: 100vw;
+  	height: 100vh;
+  }
+}
+.react-html5-camera-photo{
+  >video{
+    width: 100vw!important;
+  	height: 100vh;
+  }
 }
 
 canvas {
@@ -204,28 +217,29 @@ canvas {
 		grid-template-areas: 'title info'
 							'... ...'
 							'... demos';
+              &__title-wrap {
+            		grid-area: title;
+            		display: flex;
+            	}
+              &__title {
+            		margin: 0 8vw 0 0;
+            	}
+            	&__demos {
+            		margin: 0;
+            		grid-area: demos;
+            		justify-self: end;
+            	}
+            	&__links a {
+            		display: inline-block;
+            	}
+            	&__info {
+            		justify-self: end;
+            	}
+            	& a {
+            		pointer-events: auto;
+            	}
 	}
-	.frame__title-wrap {
-		grid-area: title;
-		display: flex;
-	}
-	.frame__title {
-		margin: 0 8vw 0 0;
-	}
-	.frame__demos {
-		margin: 0;
-		grid-area: demos;
-		justify-self: end;
-	}
-	.frame__links a {
-		display: inline-block;
-	}
-	.frame__info {
-		justify-self: end;
-	}
-	.frame a {
-		pointer-events: auto;
-	}
+
 	.content {
 		height: 100vh;
 		justify-content: center;

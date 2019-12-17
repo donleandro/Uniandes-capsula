@@ -12,4 +12,4 @@ const mix = require('laravel-mix');
  */
 
 mix.react('resources/js/app.jsx', 'public/js')
-    .sass('resources/sass/material-dashboard.scss', 'public/css');
+    .sass('resources/sass/motion-ui.scss', 'public/css');

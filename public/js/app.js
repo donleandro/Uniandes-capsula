@@ -51787,26 +51787,26 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/sass/material-dashboard.scss":
-/*!************************************************!*\
-  !*** ./resources/sass/material-dashboard.scss ***!
-  \************************************************/
+/***/ "./resources/sass/motion-ui.scss":
+/*!***************************************!*\
+  !*** ./resources/sass/motion-ui.scss ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\n\r\n$brand-primary:              $white-color !default;\r\n                            ^\r\n      Undefined variable.\n  ╷\n6 │ $brand-primary:              $white-color !default;\r\n  │                              ^^^^^^^^^^^^\n  ╵\n  resources\\sass\\material-dashboard\\variables\\_brand.scss 6:30  @import\n  resources\\sass\\material-dashboard\\_variables.scss 10:9        @import\n  stdin 16:10                                                   root stylesheet\r\n      in C:\\laragon\\www\\capsula\\resources\\sass\\material-dashboard\\variables\\_brand.scss (line 6, column 30)\n    at runLoaders (C:\\laragon\\www\\capsula\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at C:\\laragon\\www\\capsula\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at C:\\laragon\\www\\capsula\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18\n    at context.callback (C:\\laragon\\www\\capsula\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at render (C:\\laragon\\www\\capsula\\node_modules\\sass-loader\\dist\\index.js:89:7)\n    at Function.call$2 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:54416:16)\n    at _render_closure1.call$2 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:33511:12)\n    at _RootZone.runBinary$3$3 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:19804:18)\n    at _RootZone.runBinary$3 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:19808:19)\n    at _FutureListener.handleError$1 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:18273:19)\n    at _Future__propagateToListeners_handleError.call$0 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:18561:40)\n    at Object._Future__propagateToListeners (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:3486:88)\n    at _Future._completeError$2 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:18397:9)\n    at _AsyncAwaitCompleter.completeError$2 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:17796:12)\n    at Object._asyncRethrow (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:3242:17)\n    at C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:10539:20\n    at _wrapJsFunctionForAsync_closure.$protected (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:3265:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:17817:12)\n    at _awaitOnObject_closure0.call$2 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:17809:25)\n    at _RootZone.runBinary$3$3 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:19804:18)\n    at _RootZone.runBinary$3 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:19808:19)\n    at _FutureListener.handleError$1 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:18273:19)\n    at _Future__propagateToListeners_handleError.call$0 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:18561:40)\n    at Object._Future__propagateToListeners (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:3486:88)\n    at _Future._completeError$2 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:18397:9)\n    at _AsyncAwaitCompleter.completeError$2 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:17796:12)\n    at Object._asyncRethrow (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:3242:17)\n    at C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:12240:20\n    at _wrapJsFunctionForAsync_closure.$protected (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:3265:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:17817:12)\n    at _awaitOnObject_closure0.call$2 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:17809:25)\n    at _RootZone.runBinary$3$3 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:19804:18)\n    at _RootZone.runBinary$3 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:19808:19)\n    at _FutureListener.handleError$1 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:18273:19)\n    at _Future__propagateToListeners_handleError.call$0 (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:18561:40)\n    at Object._Future__propagateToListeners (C:\\laragon\\www\\capsula\\node_modules\\sass\\sass.dart.js:3486:88)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
 /***/ 0:
-/*!*****************************************************************************!*\
-  !*** multi ./resources/js/app.jsx ./resources/sass/material-dashboard.scss ***!
-  \*****************************************************************************/
+/*!********************************************************************!*\
+  !*** multi ./resources/js/app.jsx ./resources/sass/motion-ui.scss ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\laragon\www\capsula\resources\js\app.jsx */"./resources/js/app.jsx");
-module.exports = __webpack_require__(/*! C:\laragon\www\capsula\resources\sass\material-dashboard.scss */"./resources/sass/material-dashboard.scss");
+module.exports = __webpack_require__(/*! C:\laragon\www\capsula\resources\sass\motion-ui.scss */"./resources/sass/motion-ui.scss");
 
 
 /***/ })
