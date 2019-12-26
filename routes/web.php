@@ -19,6 +19,11 @@ Route::get('/capsula', function () {
     return view('capsula');
 });
 Route::get('/homes', 'HomeController@index')->name('home')->middleware('auth');
+Route::resource('insert', 'CorreoController')->names([
+    'index' => 'correos',
+    'create' => 'correos.create',
+    'edit' => 'correos.edit'
+]);
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('table-list', function () {

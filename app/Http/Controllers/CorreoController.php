@@ -3,82 +3,90 @@
 namespace App\Http\Controllers;
 
 use App\Correo;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class CorreoController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+         * Muestra todos los correos.
+         *
+         * @param  \App\Correo  $model
+         * @return \Illuminate\View\correo\index
+         */
+    public function index(Correo $model)
     {
-        //
+        return view('correos.index', ['datos' => $model->paginate(15)]);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Muestra el formulario para crear firmas.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\firmas\create
      */
     public function create()
     {
-        //
+    }
+
+
+    /**
+     * Almacena las firmas
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Correo  $model
+     * @return mixed
+     */
+    public function store(Request $request, Correo $model)
+    {
+        $file_data = $request->input('imagen');
+        $image = $request->input('imagen'); // image base64 encoded
+        preg_match("/data:image\/(.*?);/", $image, $image_extension); // extract the image extension
+        $image = preg_replace('/data:image\/(.*?);base64,/', '', $image); // remove the type part
+        $image = str_replace(' ', '+', $image);
+        $imageName = 'image_' . time() . '.' . $image_extension[1]; //generating unique file name;
+        Storage::disk('public')->put($imageName, base64_decode($image));
+
+        $model->create(
+            [
+                'fecha_creacion' => time(),
+                'mensaje' => "hola",
+                'usuario_id' => 1,
+                'imagen' => $imageName,
+                'estado' => 1
+            ]
+        );
+        return response()->json([
+          $model
+      ]);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Muestra el formulario para editar las firmas.
+     *
+     * @return \Illuminate\View\firmas\edit
+     */
+    public function edit()
+    {
+    }
+
+    /**
+     * Actualiza la firma en el almacenamiento.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function update(Request $request)
     {
-        //
     }
 
     /**
-     * Display the specified resource.
+     * Elimina la firma.
      *
-     * @param  \App\Correo  $correo
      * @return \Illuminate\Http\Response
      */
-    public function show(Correo $correo)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Correo  $correo
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Correo $correo)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Correo  $correo
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Correo $correo)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Correo  $correo
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Correo $correo)
+    public function destroy()
     {
         //
     }

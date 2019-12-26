@@ -15,12 +15,12 @@ class CreateCorreosTable extends Migration
     {
         Schema::create('correos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamp('fecha_creacion')->nullable();
             $table->longText('mensaje');
             $table->string('imagen');
             $table->biginteger('usuario_id')->unsigned();
             $table->foreign('usuario_id')->references('id')->on('users');
             $table->integer('estado')->nullable();
+            $table->timestamps();
         });
     }
 

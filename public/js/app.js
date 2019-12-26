@@ -51726,6 +51726,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_html5_camera_photo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_html5_camera_photo__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_html5_camera_photo_build_css_index_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-html5-camera-photo/build/css/index.css */ "./node_modules/react-html5-camera-photo/build/css/index.css");
 /* harmony import */ var react_html5_camera_photo_build_css_index_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_html5_camera_photo_build_css_index_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
 /**
  * In this file we will be using Reactjs for build our application example
  * so, below we have our clasic welcome code - Hello World -
@@ -51737,15 +51739,76 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
+
 function App(props) {
+  function fileUpload(image) {
+    // const url = 'https://capsula.test/insert';
+    // console.log('takePhoto');
+    // const formData = {
+    //     file: image
+    // }
+    // return post(url, formData)
+    //     .then(response => console.log(response))
+    axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/insert', {
+      imagen: image
+    }).then(function (response) {
+      console.log(response.data);
+    })["catch"](function (error) {
+      console.log(error.response);
+    });
+  }
+
   function handleTakePhoto(dataUri) {
     // Do stuff with the photo...
     console.log('takePhoto');
+    fileUpload(dataUri);
+  }
+
+  function handleTakePhotoAnimationDone(dataUri) {
+    // Do stuff with the photo...
+    console.log('takePhoto');
+  }
+
+  function handleCameraError(error) {
+    console.log('handleCameraError', error);
+  }
+
+  function handleCameraStart(stream) {
+    console.log('handleCameraStart');
+  }
+
+  function handleCameraStop() {
+    console.log('handleCameraStop');
   }
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_html5_camera_photo__WEBPACK_IMPORTED_MODULE_2___default.a, {
     onTakePhoto: function onTakePhoto(dataUri) {
       handleTakePhoto(dataUri);
+    },
+    onTakePhotoAnimationDone: function onTakePhotoAnimationDone(dataUri) {
+      handleTakePhotoAnimationDone(dataUri);
+    },
+    onCameraError: function onCameraError(error) {
+      handleCameraError(error);
+    },
+    idealFacingMode: react_html5_camera_photo__WEBPACK_IMPORTED_MODULE_2__["FACING_MODES"].ENVIRONMENT,
+    idealResolution: {
+      width: 640,
+      height: 480
+    },
+    imageType: react_html5_camera_photo__WEBPACK_IMPORTED_MODULE_2__["IMAGE_TYPES"].JPG,
+    imageCompression: 0.97,
+    isMaxResolution: true,
+    isImageMirror: false,
+    isSilentMode: false,
+    isDisplayStartCameraError: true,
+    isFullscreen: false,
+    sizeFactor: 1,
+    onCameraStart: function onCameraStart(stream) {
+      handleCameraStart(stream);
+    },
+    onCameraStop: function onCameraStop() {
+      handleCameraStop();
     }
   });
 }
