@@ -12,11 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('inicio');
+    return view('capsula.inicio');
 });
-Auth::routes();
 Route::get('/capsula', function () {
-    return view('capsula');
+    return view('capsula.capsula');
+});
+Route::get('/info', function () {
+    return view('capsula.leermas');
+});
+Route::get('/enviado', function () {
+    return view('capsula.enviado');
 });
 Route::get('/homes', 'HomeController@index')->name('home')->middleware('auth');
 Route::resource('insert', 'CorreoController')->names([
@@ -24,40 +29,3 @@ Route::resource('insert', 'CorreoController')->names([
     'create' => 'correos.create',
     'edit' => 'correos.edit'
 ]);
-
-Route::group(['middleware' => 'auth'], function () {
-	Route::get('table-list', function () {
-		return view('pages.table_list');
-	})->name('table');
-
-	Route::get('typography', function () {
-		return view('pages.typography');
-	})->name('typography');
-
-	Route::get('icons', function () {
-		return view('pages.icons');
-	})->name('icons');
-
-	Route::get('map', function () {
-		return view('pages.map');
-	})->name('map');
-
-	Route::get('notifications', function () {
-		return view('pages.notifications');
-	})->name('notifications');
-
-	Route::get('rtl-support', function () {
-		return view('pages.language');
-	})->name('language');
-
-	Route::get('upgrade', function () {
-		return view('pages.upgrade');
-	})->name('upgrade');
-});
-
-Route::group(['middleware' => 'auth'], function () {
-	Route::resource('user', 'UserController', ['except' => ['show']]);
-	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
-	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
-	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
-});

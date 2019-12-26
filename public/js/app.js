@@ -1831,7 +1831,7 @@ module.exports = {
 
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/react-html5-camera-photo/build/css/index.css":
 /*!***************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/react-html5-camera-photo/build/css/index.css ***!
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./node_modules/react-html5-camera-photo/build/css/index.css ***!
   \***************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1850,7 +1850,7 @@ exports.push([module.i, "#container-circles{position:absolute;left:50%;bottom:90
 
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/ImagePreview/style.css":
 /*!*****************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/ImagePreview/style.css ***!
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./resources/js/ImagePreview/style.css ***!
   \*****************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -48016,7 +48016,7 @@ if (false) {} else {
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../css-loader??ref--6-1!../../../postcss-loader/src??ref--6-2!./index.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/react-html5-camera-photo/build/css/index.css");
+var content = __webpack_require__(/*! !../../../css-loader??ref--7-1!../../../postcss-loader/src??ref--7-2!./index.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/react-html5-camera-photo/build/css/index.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -52667,7 +52667,7 @@ ImagePreview.propTypes = {
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/postcss-loader/src??ref--6-2!./style.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/ImagePreview/style.css");
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--7-1!../../../node_modules/postcss-loader/src??ref--7-2!./style.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/ImagePreview/style.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -52807,6 +52807,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/sass/material-dashboard.scss":
+/*!************************************************!*\
+  !*** ./resources/sass/material-dashboard.scss ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/motion-ui.scss":
 /*!***************************************!*\
   !*** ./resources/sass/motion-ui.scss ***!
@@ -52819,13 +52830,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ }),
 
 /***/ 0:
-/*!********************************************************************!*\
-  !*** multi ./resources/js/app.jsx ./resources/sass/motion-ui.scss ***!
-  \********************************************************************/
+/*!*************************************************************************************************************!*\
+  !*** multi ./resources/js/app.jsx ./resources/sass/material-dashboard.scss ./resources/sass/motion-ui.scss ***!
+  \*************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\laragon\www\capsula\resources\js\app.jsx */"./resources/js/app.jsx");
+__webpack_require__(/*! C:\laragon\www\capsula\resources\sass\material-dashboard.scss */"./resources/sass/material-dashboard.scss");
 module.exports = __webpack_require__(/*! C:\laragon\www\capsula\resources\sass\motion-ui.scss */"./resources/sass/motion-ui.scss");
 
 

@@ -23,7 +23,7 @@
 				<div class="content__title-wrap">
 					<span class="content__pretitle">Presiona para acelerar</span>
 					<h2 class="content__title">Cápsula del Tiempo</h2>
-					<a class="content__link" href="{{ url('/capsula') }}">Ingresar</a>
+					<a class="content__link" href="{{ url('/info') }}">Ingresar</a>
 				</div>
 			</div>
 		</main>
