@@ -20,10 +20,15 @@
 		<main>
 			<div class="content">
 				<div id="app"></div>
+				<div class="frame">
+					<div class="frame__demos">
+						<div class="frame__demo">La cápsula del tiempo es una aplicación para enviar un mensaje a tu yo del futuro. Este mensaje te llegará en dos años.</div>
+					</div>
+				</div>
 				<div class="content__title-wrap">
 					<span class="content__pretitle">Presiona para acelerar</span>
 					<h2 class="content__title">Cápsula del Tiempo</h2>
-					<a class="content__link" href="{{ url('/info') }}">Ingresar</a>
+					<a class="content__link" href="{{ url('/capsula') }}">Ingresar</a>
 				</div>
 			</div>
 		</main>
@@ -44,18 +49,18 @@
 				// mountainDistortion || LongRaceDistortion || xyDistortion || turbulentDistortion || turbulentDistortionStill || deepDistortionStill || deepDistortion
 				distortion: LongRaceDistortion,
 
-				length: 400,
+				length: 500,
 				roadWidth: 15,
 				islandWidth: 2,
 				lanesPerRoad: 4,
 
 				fov: 90,
 				fovSpeedUp: 150,
-				speedUp: 2,
-				carLightsFade: 0.9,
+				speedUp: 4,
+				carLightsFade: 0.3,
 
-				totalSideLightSticks: 50,
-				lightPairsPerRoadWay: 50,
+				totalSideLightSticks: 1,
+				lightPairsPerRoadWay: 100,
 
 				// Percentage of the lane's width
 				shoulderLinesWidthPercentage: 0.5,
@@ -66,13 +71,13 @@
 				lightStickWidth: [0.12, 0.5],
 				lightStickHeight: [1.3, 5],
 
-				movingAwaySpeed: [60, 80],
-				movingCloserSpeed: [-120, -160],
+				movingCloserSpeed: [60, 80],
+				movingAwaySpeed: [120, 160],
 
 				/****  Anything below can be either a number or an array of [min,max] ****/
 
 				// Length of the lights. Best to be less than total length
-				carLightsLength: [400 * 0.05, 400 * 0.25],
+				carLightsLength: [400 * 0.05, 400 * 0.55],
 				// Radius of the tubes
 				carLightsRadius: [0.01, 0.34],
 				// Width is percentage of a lane. Numbers from 0 to 1
@@ -82,7 +87,7 @@
 				// Or cars start going into other lanes
 				carShiftX: [-0.2, 5],
 				// Self Explanatory
-				carFloorSeparation: [0.05, 25],
+				carFloorSeparation: [0.05, 50],
 
 				colors: {
 					roadColor: 0xFFFFFF,

@@ -70,9 +70,7 @@ body {
 }
 
 a {
-	text-decoration: none;
-	color: var(--color-link);
-	outline: none;
+  color: var(--color-alt);
 }
 
 a:hover,
@@ -115,6 +113,13 @@ a:focus {
   &__demo {
   	display: block;
   	padding-top: 0.5rem;
+
+    	text-decoration: none;
+    	// color: var(--color-link);
+    	outline: none;
+      padding:10px;
+      	background-color: #ffffffaa;
+      	color: var(--color-bg);
   }
 
   &__info {
@@ -167,10 +172,15 @@ a:focus {
 }
 
 .content__link {
+
+  color: var(--color-alt)!important;
 	text-decoration: underline;
 	font-family: azo-sans-uber, sans-serif;
 	font-size: 1.1rem;
 	color: inherit;
+  padding:5px 22px;
+  border: 2px solid var(--color-alt);
+  border-radius: 50px 20px;
 }
 
 #app {
