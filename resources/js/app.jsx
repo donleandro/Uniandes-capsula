@@ -30,10 +30,13 @@ class App extends React.Component {
     this.updateNombreClick = this.updateNombreClick.bind(this);
     this.updateApellidoClick = this.updateApellidoClick.bind(this);
 
+    this.handleTakePhoto = this.handleTakePhoto.bind(this);
+
     this.state = {isLoggedIn: 0,
                   correo:"",
                   nombre:"",
-                  apellido:""
+                  apellido:"",
+                  image:""
                   };
   }
   handleCorreoClick() {
@@ -56,8 +59,30 @@ class App extends React.Component {
   updateApellidoClick(evt) {
     this.setState({apellido: evt.target.value});
   }
+  handleTakePhoto (dataUri) {
+    // Do stuff with the photo...
+    console.log('takePhoto');
+    this.setState({image: dataUri});
+    console.log(this.state);
+    this.fileUpload(dataUri);
+  }
+  fileUpload(dataUri) {
+      axios.post('/insert', {
+              imagen: dataUri,
+              nombre: this.state.nombre,
+              apellido: this.state.apellido,
+              correo: this.state.correo
+          })
+          .then(function(response) {
+              console.log(response.data);
+          })
+          .catch(function(error) {
+              console.log(error.response);
+          });
+  }
   render() {
     const isLoggedIn = this.state.isLoggedIn;
+    const image = this.state.image;
     let button;
     if (isLoggedIn==0) {
       return <Correo onClick={this.handleCorreoClick} onChange={this.updateCorreoClick} />;
@@ -68,7 +93,12 @@ class App extends React.Component {
     if (isLoggedIn==2) {
       return <Apellido onClick={this.handleApellidoClick} onChange={this.updateApellidoClick} />;
     }
-    return <Camara />;
+    if(!image){
+      return <Camera
+        onTakePhoto = { (dataUri) => { this.handleTakePhoto(dataUri); } }
+      />;
+    }
+    return < ImagePreview dataUri = {this.state.image}/>
   }
 }
 

@@ -52762,11 +52762,13 @@ function (_React$Component) {
     _this.updateCorreoClick = _this.updateCorreoClick.bind(_assertThisInitialized(_this));
     _this.updateNombreClick = _this.updateNombreClick.bind(_assertThisInitialized(_this));
     _this.updateApellidoClick = _this.updateApellidoClick.bind(_assertThisInitialized(_this));
+    _this.handleTakePhoto = _this.handleTakePhoto.bind(_assertThisInitialized(_this));
     _this.state = {
       isLoggedIn: 0,
       correo: "",
       nombre: "",
-      apellido: ""
+      apellido: "",
+      image: ""
     };
     return _this;
   }
@@ -52816,9 +52818,37 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "handleTakePhoto",
+    value: function handleTakePhoto(dataUri) {
+      // Do stuff with the photo...
+      console.log('takePhoto');
+      this.setState({
+        image: dataUri
+      });
+      console.log(this.state);
+      this.fileUpload(dataUri);
+    }
+  }, {
+    key: "fileUpload",
+    value: function fileUpload(dataUri) {
+      axios__WEBPACK_IMPORTED_MODULE_5___default.a.post('/insert', {
+        imagen: dataUri,
+        nombre: this.state.nombre,
+        apellido: this.state.apellido,
+        correo: this.state.correo
+      }).then(function (response) {
+        console.log(response.data);
+      })["catch"](function (error) {
+        console.log(error.response);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var isLoggedIn = this.state.isLoggedIn;
+      var image = this.state.image;
       var button;
 
       if (isLoggedIn == 0) {
@@ -52842,7 +52872,17 @@ function (_React$Component) {
         });
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Camara, null);
+      if (!image) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_html5_camera_photo__WEBPACK_IMPORTED_MODULE_2___default.a, {
+          onTakePhoto: function onTakePhoto(dataUri) {
+            _this2.handleTakePhoto(dataUri);
+          }
+        });
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ImagePreview__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        dataUri: this.state.image
+      });
     }
   }]);
 
