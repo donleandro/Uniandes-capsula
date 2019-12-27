@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Correo;
+use App\User;
 use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 
 class CorreoController extends Controller
 {
@@ -40,6 +42,16 @@ class CorreoController extends Controller
      */
     public function store(Request $request, Correo $model)
     {
+        $this->Validate($request, [
+            'mensaje' => 'required|max:80',
+            'correo' => 'required|max:20',
+            'nombre' => 'required|max:20',
+            'apellido' => 'required|max:20',
+        ]);
+
+
+        $user_id = $this->crearUsuario($request);
+
         $file_data = $request->input('imagen');
         $image = $request->input('imagen'); // image base64 encoded
         preg_match("/data:image\/(.*?);/", $image, $image_extension); // extract the image extension
@@ -55,7 +67,7 @@ class CorreoController extends Controller
             [
                 'fecha_creacion' => time(),
                 'mensaje' => $mensaje,
-                'usuario_id' => 1,
+                'usuario_id' => $user_id,
                 'imagen' => $imageName,
                 'estado' => $estado
             ]
@@ -64,7 +76,19 @@ class CorreoController extends Controller
           $model
       ]);
     }
-
+    public function crearUsuario(Request $request){
+      $email = $request->input('correo');
+      $user = User::where('email', "$email@uniandes.edu.co")->first();
+      if(!$user){
+        $user = new User;
+        $user->name = $request->input('nombre');
+        $user->surname = $request->input('apellido');
+        $user->email = "$email@uniandes.edu.co";
+        $user->password = '0';
+        $user->save();
+      }
+      return $user->id;
+    }
     /**
      * Muestra el formulario para editar las firmas.
      *

@@ -19,7 +19,7 @@ class CreateCorreosTable extends Migration
             $table->string('imagen');
             $table->biginteger('usuario_id')->unsigned();
             $table->foreign('usuario_id')->references('id')->on('users');
-            $table->integer('estado')->nullable();
+            $table->integer('estado')->default(0)->nullable();
             $table->timestamps();
         });
     }

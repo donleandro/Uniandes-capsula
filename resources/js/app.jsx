@@ -144,7 +144,7 @@ function Correo(props) {
           <span class="content__pretitle">Ingresa tu correo institucional sin @uniandes</span>
           <input onChange={props.onChange} type="email" placeholder="Email" class="content__input" id="exampleInputPassword1" />
           </div>
-        <button onClick={props.onClick}>Ingresar</button>
+        <button onClick={props.onClick}>Siguiente</button>
 			</div>
 		</main>
   );
@@ -156,14 +156,13 @@ function Nombre(props) {
 			<div class="content">
 				<div class="frame">
 					<div class="frame__demos">
-						<div class="frame__demo">La cápsula del tiempo es una aplicación para enviar un mensaje a tu yo del futuro. Este mensaje te llegará en dos años.</div>
+
 					</div>
 				</div>
         <div class="content__title-wrap-input">
-          <span class="content__pretitle">Ingresa tu nombre</span>
           <input onChange={props.onChange} type="text" placeholder="Nombre" class="content__input" />
           </div>
-        <button onClick={props.onClick} >Ingresar</button>
+        <button onClick={props.onClick} >Siguiente</button>
 			</div>
 		</main>
   );
@@ -174,11 +173,11 @@ function Estado(props){
 			<div class="content">
 				<div class="frame">
 					<div class="frame__demos">
-						<div class="frame__demo">La cápsula del tiempo es una aplicación para enviar un mensaje a tu yo del futuro. Este mensaje te llegará en dos años.</div>
+
 					</div>
 				</div>
-        <div class="content__title-wrap-input">
-          <span class="content__pretitle">Ingresa tu nombre</span>
+        <div class="content__input">
+          <span class="content__checkbox">¿Deseas que el mensaje no sea público?</span>
           <input onChange={props.onChange} type="checkbox" name="vehicle1" value="1" />
           </div>
         <button onClick={props.onClick} >Ingresar</button>
@@ -192,13 +191,13 @@ function Apellido(props) {
 			<div class="content">
 				<div class="frame">
 					<div class="frame__demos">
-						<div class="frame__demo">La cápsula del tiempo es una aplicación para enviar un mensaje a tu yo del futuro. Este mensaje te llegará en dos años.</div>
+
 					</div>
 				</div>
         <div class="content__title-wrap-input">
           <input onChange={props.onChange} type="text" placeholder="Apellido" class="content__input" />
           </div>
-        <button onClick={props.onClick} >Ingresar</button>
+        <button onClick={props.onClick} >Siguiente</button>
 			</div>
 		</main>
   );
@@ -209,13 +208,14 @@ function Mensaje(props) {
 			<div class="content">
 				<div class="frame">
 					<div class="frame__demos">
-						<div class="frame__demo">La cápsula del tiempo es una aplicación para enviar un mensaje a tu yo del futuro. Este mensaje te llegará en dos años.</div>
+
 					</div>
 				</div>
         <div class="content__title-wrap-input">
-          <input onChange={props.onChange} type="text" placeholder="Mensaje" class="content__input" />
+        <textarea onChange={props.onChange} class="content__input-caja" rows="4" cols="50">Mensaje</textarea>
+          <input type="text" placeholder="Mensaje" />
           </div>
-        <button onClick={props.onClick} >Ingresar</button>
+        <button onClick={props.onClick} >Siguiente</button>
 			</div>
 		</main>
   );

@@ -52954,7 +52954,7 @@ function Correo(props) {
     id: "exampleInputPassword1"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: props.onClick
-  }, "Ingresar")));
+  }, "Siguiente")));
 }
 
 function Nombre(props) {
@@ -52964,20 +52964,16 @@ function Nombre(props) {
     "class": "frame"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "frame__demos"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "frame__demo"
-  }, "La c\xE1psula del tiempo es una aplicaci\xF3n para enviar un mensaje a tu yo del futuro. Este mensaje te llegar\xE1 en dos a\xF1os."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "content__title-wrap-input"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    "class": "content__pretitle"
-  }, "Ingresa tu nombre"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     onChange: props.onChange,
     type: "text",
     placeholder: "Nombre",
     "class": "content__input"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: props.onClick
-  }, "Ingresar")));
+  }, "Siguiente")));
 }
 
 function Estado(props) {
@@ -52987,13 +52983,11 @@ function Estado(props) {
     "class": "frame"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "frame__demos"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "frame__demo"
-  }, "La c\xE1psula del tiempo es una aplicaci\xF3n para enviar un mensaje a tu yo del futuro. Este mensaje te llegar\xE1 en dos a\xF1os."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "content__title-wrap-input"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "content__input"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    "class": "content__pretitle"
-  }, "Ingresa tu nombre"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    "class": "content__checkbox"
+  }, "\xBFDeseas que el mensaje no sea p\xFAblico?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     onChange: props.onChange,
     type: "checkbox",
     name: "vehicle1",
@@ -53010,9 +53004,7 @@ function Apellido(props) {
     "class": "frame"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "frame__demos"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "frame__demo"
-  }, "La c\xE1psula del tiempo es una aplicaci\xF3n para enviar un mensaje a tu yo del futuro. Este mensaje te llegar\xE1 en dos a\xF1os."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "content__title-wrap-input"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     onChange: props.onChange,
@@ -53021,7 +53013,7 @@ function Apellido(props) {
     "class": "content__input"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: props.onClick
-  }, "Ingresar")));
+  }, "Siguiente")));
 }
 
 function Mensaje(props) {
@@ -53031,18 +53023,19 @@ function Mensaje(props) {
     "class": "frame"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "frame__demos"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "frame__demo"
-  }, "La c\xE1psula del tiempo es una aplicaci\xF3n para enviar un mensaje a tu yo del futuro. Este mensaje te llegar\xE1 en dos a\xF1os."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "content__title-wrap-input"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
     onChange: props.onChange,
+    "class": "content__input-caja",
+    rows: "4",
+    cols: "50"
+  }, "Mensaje"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "text",
-    placeholder: "Mensaje",
-    "class": "content__input"
+    placeholder: "Mensaje"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: props.onClick
-  }, "Ingresar")));
+  }, "Siguiente")));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
