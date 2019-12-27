@@ -47,21 +47,17 @@ class App extends React.Component {
   }
   handleCorreoClick() {
     this.setState({isLoggedIn: 1});
-    console.log(this.state);
   }
   handleNombreClick() {
     this.setState({isLoggedIn: 2});
   }
   handleApellidoClick() {
-    console.log(this.state);
     this.setState({isLoggedIn: 3});
   }
   handleMensajeClick() {
-    console.log(this.state);
     this.setState({isLoggedIn: 4});
   }
   handleEstadoClick() {
-    console.log(this.state);
     this.setState({isLoggedIn: 5});
   }
   updateEstadoClick(evt) {
@@ -81,7 +77,6 @@ class App extends React.Component {
   }
   handleTakePhoto (dataUri) {
     // Do stuff with the photo...
-    console.log('takePhoto');
     this.setState({image: dataUri});
     console.log(this.state);
     this.fileUpload(dataUri);
@@ -105,6 +100,8 @@ class App extends React.Component {
   render() {
     const isLoggedIn = this.state.isLoggedIn;
     const image = this.state.image;
+    const correo = this.state.correo;
+    const mensaje = this.state.mensaje;
     let button;
     if (isLoggedIn==0) {
       return <Correo onClick={this.handleCorreoClick} onChange={this.updateCorreoClick} />;
@@ -126,7 +123,7 @@ class App extends React.Component {
         onTakePhoto = { (dataUri) => { this.handleTakePhoto(dataUri); } }
       />;
     }
-    return < ImagePreview dataUri = {this.state.image}/>
+    return < Final datauri = {this.state} />
   }
 }
 
@@ -134,15 +131,15 @@ class App extends React.Component {
 function Correo(props) {
   return (
     <main>
-			<div class="content">
-				<div class="frame">
-					<div class="frame__demos">
-						<div class="frame__demo">La cápsula del tiempo es una aplicación para enviar un mensaje a tu yo del futuro. Este mensaje te llegará en dos años.</div>
+			<div className="content">
+				<div className="frame">
+					<div className="frame__demos">
+						<div className="frame__demo">La cápsula del tiempo es una aplicación para enviar un mensaje a tu yo del futuro. Este mensaje te llegará en dos años.</div>
 					</div>
 				</div>
-        <div class="content__title-wrap-input">
-          <span class="content__pretitle">Ingresa tu correo institucional sin @uniandes</span>
-          <input onChange={props.onChange} type="email" placeholder="Email" class="content__input" id="exampleInputPassword1" />
+        <div className="content__title-wrap-input">
+          <span className="content__pretitle">Ingresa tu correo institucional sin @uniandes</span>
+          <input onChange={props.onChange} type="email" placeholder="Email" className="content__input" id="exampleInputPassword1" />
           </div>
         <button onClick={props.onClick}>Siguiente</button>
 			</div>
@@ -153,14 +150,14 @@ function Correo(props) {
 function Nombre(props) {
   return (
     <main>
-			<div class="content">
-				<div class="frame">
-					<div class="frame__demos">
+			<div className="content">
+				<div className="frame">
+					<div className="frame__demos">
 
 					</div>
 				</div>
-        <div class="content__title-wrap-input">
-          <input onChange={props.onChange} type="text" placeholder="Nombre" class="content__input" />
+        <div className="content__title-wrap-input">
+          <input onChange={props.onChange} type="text" placeholder="Nombre" className="content__input" />
           </div>
         <button onClick={props.onClick} >Siguiente</button>
 			</div>
@@ -170,14 +167,14 @@ function Nombre(props) {
 function Estado(props){
   return (
     <main>
-			<div class="content">
-				<div class="frame">
-					<div class="frame__demos">
+			<div className="content">
+				<div className="frame">
+					<div className="frame__demos">
 
 					</div>
 				</div>
-        <div class="content__input">
-          <span class="content__checkbox">¿Deseas que el mensaje no sea público?</span>
+        <div className="content__input">
+          <span className="content__checkbox">¿Deseas que el mensaje no sea público?</span>
           <input onChange={props.onChange} type="checkbox" name="vehicle1" value="1" />
           </div>
         <button onClick={props.onClick} >Ingresar</button>
@@ -188,14 +185,14 @@ function Estado(props){
 function Apellido(props) {
   return (
     <main>
-			<div class="content">
-				<div class="frame">
-					<div class="frame__demos">
+			<div className="content">
+				<div className="frame">
+					<div className="frame__demos">
 
 					</div>
 				</div>
-        <div class="content__title-wrap-input">
-          <input onChange={props.onChange} type="text" placeholder="Apellido" class="content__input" />
+        <div className="content__title-wrap-input">
+          <input onChange={props.onChange} type="text" placeholder="Apellido" className="content__input" />
           </div>
         <button onClick={props.onClick} >Siguiente</button>
 			</div>
@@ -205,22 +202,47 @@ function Apellido(props) {
 function Mensaje(props) {
   return (
     <main>
-			<div class="content">
-				<div class="frame">
-					<div class="frame__demos">
+			<div className="content">
+				<div className="frame">
+					<div className="frame__demos">
 
 					</div>
 				</div>
-        <div class="content__title-wrap-input">
-        <textarea onChange={props.onChange} class="content__input-caja" rows="4" cols="50">Mensaje</textarea>
-          <input type="text" placeholder="Mensaje" />
+        <div className="content__title-wrap-input">
+        <textarea onChange={props.onChange} className="content__input-caja" rows="4" cols="50" defaultValue="Mensaje"/>
           </div>
         <button onClick={props.onClick} >Siguiente</button>
 			</div>
 		</main>
   );
 }
+function Final(props){
 
+  var divStyle = {
+    backgroundImage: 'url(' + props.datauri.image + ')',
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
+  };
+  console.log("props");
+  console.log(props.datauri);
+  return(
+    <main>
+			<div className="content" style={divStyle}>
+				<div className="frame">
+					<div className="frame__demos">
+
+					</div>
+				</div>
+        <div className="content__title-wrap-input">
+          <span className="content__pretitle">Para: {props.datauri.correo}@uniandes.edu.co</span>
+          <span className="content__input">{props.datauri.mensaje}</span>
+          </div>
+        <button>ENVIAR</button>
+			</div>
+		</main>
+  );
+}
 
 export default App;
 

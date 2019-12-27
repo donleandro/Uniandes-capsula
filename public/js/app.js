@@ -52643,14 +52643,30 @@ __webpack_require__.r(__webpack_exports__);
 
 var ImagePreview = function ImagePreview(_ref) {
   var dataUri = _ref.dataUri;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: 'demo-image-preview demo-image-preview-fullscreen'
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: dataUri
-  }));
+  var divStyle = {
+    backgroundImage: 'url(' + dataUri.image + ')',
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
+  };
+  console.log(dataUri);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "content",
+    style: divStyle
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "frame"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "frame__demos"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "content__title-wrap-input"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "content__pretitle"
+  }, "Para: ", dataUri.correo, "@uniandes.edu.co"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "content__input"
+  }, dataUri.mensaje)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "ENVIAR")));
 };
 ImagePreview.propTypes = {
-  dataUri: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
+  dataUri: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object
 };
 /* harmony default export */ __webpack_exports__["default"] = (ImagePreview);
 
@@ -52777,7 +52793,6 @@ function (_React$Component) {
       this.setState({
         isLoggedIn: 1
       });
-      console.log(this.state);
     }
   }, {
     key: "handleNombreClick",
@@ -52789,7 +52804,6 @@ function (_React$Component) {
   }, {
     key: "handleApellidoClick",
     value: function handleApellidoClick() {
-      console.log(this.state);
       this.setState({
         isLoggedIn: 3
       });
@@ -52797,7 +52811,6 @@ function (_React$Component) {
   }, {
     key: "handleMensajeClick",
     value: function handleMensajeClick() {
-      console.log(this.state);
       this.setState({
         isLoggedIn: 4
       });
@@ -52805,7 +52818,6 @@ function (_React$Component) {
   }, {
     key: "handleEstadoClick",
     value: function handleEstadoClick() {
-      console.log(this.state);
       this.setState({
         isLoggedIn: 5
       });
@@ -52849,7 +52861,6 @@ function (_React$Component) {
     key: "handleTakePhoto",
     value: function handleTakePhoto(dataUri) {
       // Do stuff with the photo...
-      console.log('takePhoto');
       this.setState({
         image: dataUri
       });
@@ -52879,6 +52890,8 @@ function (_React$Component) {
 
       var isLoggedIn = this.state.isLoggedIn;
       var image = this.state.image;
+      var correo = this.state.correo;
+      var mensaje = this.state.mensaje;
       var button;
 
       if (isLoggedIn == 0) {
@@ -52924,8 +52937,8 @@ function (_React$Component) {
         });
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ImagePreview__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        dataUri: this.state.image
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Final, {
+        datauri: this.state
       });
     }
   }]);
@@ -52935,22 +52948,22 @@ function (_React$Component) {
 
 function Correo(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "content"
+    className: "content"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "frame"
+    className: "frame"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "frame__demos"
+    className: "frame__demos"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "frame__demo"
+    className: "frame__demo"
   }, "La c\xE1psula del tiempo es una aplicaci\xF3n para enviar un mensaje a tu yo del futuro. Este mensaje te llegar\xE1 en dos a\xF1os."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "content__title-wrap-input"
+    className: "content__title-wrap-input"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    "class": "content__pretitle"
+    className: "content__pretitle"
   }, "Ingresa tu correo institucional sin @uniandes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     onChange: props.onChange,
     type: "email",
     placeholder: "Email",
-    "class": "content__input",
+    className: "content__input",
     id: "exampleInputPassword1"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: props.onClick
@@ -52959,18 +52972,18 @@ function Correo(props) {
 
 function Nombre(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "content"
+    className: "content"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "frame"
+    className: "frame"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "frame__demos"
+    className: "frame__demos"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "content__title-wrap-input"
+    className: "content__title-wrap-input"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     onChange: props.onChange,
     type: "text",
     placeholder: "Nombre",
-    "class": "content__input"
+    className: "content__input"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: props.onClick
   }, "Siguiente")));
@@ -52978,15 +52991,15 @@ function Nombre(props) {
 
 function Estado(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "content"
+    className: "content"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "frame"
+    className: "frame"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "frame__demos"
+    className: "frame__demos"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "content__input"
+    className: "content__input"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    "class": "content__checkbox"
+    className: "content__checkbox"
   }, "\xBFDeseas que el mensaje no sea p\xFAblico?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     onChange: props.onChange,
     type: "checkbox",
@@ -52999,18 +53012,18 @@ function Estado(props) {
 
 function Apellido(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "content"
+    className: "content"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "frame"
+    className: "frame"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "frame__demos"
+    className: "frame__demos"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "content__title-wrap-input"
+    className: "content__title-wrap-input"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     onChange: props.onChange,
     type: "text",
     placeholder: "Apellido",
-    "class": "content__input"
+    className: "content__input"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: props.onClick
   }, "Siguiente")));
@@ -53018,24 +53031,47 @@ function Apellido(props) {
 
 function Mensaje(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "content"
+    className: "content"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "frame"
+    className: "frame"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "frame__demos"
+    className: "frame__demos"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "content__title-wrap-input"
+    className: "content__title-wrap-input"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
     onChange: props.onChange,
-    "class": "content__input-caja",
+    className: "content__input-caja",
     rows: "4",
-    cols: "50"
-  }, "Mensaje"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text",
-    placeholder: "Mensaje"
+    cols: "50",
+    defaultValue: "Mensaje"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: props.onClick
   }, "Siguiente")));
+}
+
+function Final(props) {
+  var divStyle = {
+    backgroundImage: 'url(' + props.datauri.image + ')',
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
+  };
+  console.log("props");
+  console.log(props.datauri);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "content",
+    style: divStyle
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "frame"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "frame__demos"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "content__title-wrap-input"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "content__pretitle"
+  }, "Para: ", props.datauri.correo, "@uniandes.edu.co"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "content__input"
+  }, props.datauri.mensaje)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "ENVIAR")));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (App);

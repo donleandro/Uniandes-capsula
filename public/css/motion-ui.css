@@ -181,6 +181,7 @@ a:hover {
 .content__pretitle {
   color: var(--color-uniandes);
   font-size: 1.35rem;
+  display: block;
 }
 
 .content__title {

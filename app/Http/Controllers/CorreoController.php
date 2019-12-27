@@ -57,7 +57,7 @@ class CorreoController extends Controller
         preg_match("/data:image\/(.*?);/", $image, $image_extension); // extract the image extension
         $image = preg_replace('/data:image\/(.*?);base64,/', '', $image); // remove the type part
         $image = str_replace(' ', '+', $image);
-        $imageName = 'image_' . time() . '.' . $image_extension[1]; //generating unique file name;
+        $imageName = $request->input('correo') . '_' . time() . '.' . $image_extension[1]; //generating unique file name;
         Storage::disk('public')->put($imageName, base64_decode($image));
 
         $mensaje = $request->input('mensaje');
@@ -76,6 +76,12 @@ class CorreoController extends Controller
           $model
       ]);
     }
+    /**
+     * Crea los usuarios
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return int
+     */
     public function crearUsuario(Request $request){
       $email = $request->input('correo');
       $user = User::where('email', "$email@uniandes.edu.co")->first();
