@@ -52642,18 +52642,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ImagePreview = function ImagePreview(_ref) {
-  var dataUri = _ref.dataUri,
-      isFullscreen = _ref.isFullscreen;
-  var classNameFullscreen = isFullscreen ? 'demo-image-preview-fullscreen' : '';
+  var dataUri = _ref.dataUri;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: 'demo-image-preview ' + classNameFullscreen
+    className: 'demo-image-preview demo-image-preview-fullscreen'
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: dataUri
   }));
 };
 ImagePreview.propTypes = {
-  dataUri: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
-  isFullscreen: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool
+  dataUri: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
 };
 /* harmony default export */ __webpack_exports__["default"] = (ImagePreview);
 
@@ -52717,6 +52714,24 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 /**
  * In this file we will be using Reactjs for build our application example
  * so, below we have our clasic welcome code - Hello World -
@@ -52730,11 +52745,120 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
-function App(props) {
+var App =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(App, _React$Component);
+
+  function App(props) {
+    var _this;
+
+    _classCallCheck(this, App);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
+    _this.handleCorreoClick = _this.handleCorreoClick.bind(_assertThisInitialized(_this));
+    _this.handleNombreClick = _this.handleNombreClick.bind(_assertThisInitialized(_this));
+    _this.handleApellidoClick = _this.handleApellidoClick.bind(_assertThisInitialized(_this));
+    _this.updateCorreoClick = _this.updateCorreoClick.bind(_assertThisInitialized(_this));
+    _this.updateNombreClick = _this.updateNombreClick.bind(_assertThisInitialized(_this));
+    _this.updateApellidoClick = _this.updateApellidoClick.bind(_assertThisInitialized(_this));
+    _this.state = {
+      isLoggedIn: 0,
+      correo: "",
+      nombre: "",
+      apellido: ""
+    };
+    return _this;
+  }
+
+  _createClass(App, [{
+    key: "handleCorreoClick",
+    value: function handleCorreoClick() {
+      this.setState({
+        isLoggedIn: 1
+      });
+      console.log(this.state);
+    }
+  }, {
+    key: "handleNombreClick",
+    value: function handleNombreClick() {
+      this.setState({
+        isLoggedIn: 2
+      });
+    }
+  }, {
+    key: "handleApellidoClick",
+    value: function handleApellidoClick() {
+      console.log(this.state);
+      this.setState({
+        isLoggedIn: 3
+      });
+    }
+  }, {
+    key: "updateCorreoClick",
+    value: function updateCorreoClick(evt) {
+      this.setState({
+        correo: evt.target.value
+      });
+    }
+  }, {
+    key: "updateNombreClick",
+    value: function updateNombreClick(evt) {
+      this.setState({
+        nombre: evt.target.value
+      });
+    }
+  }, {
+    key: "updateApellidoClick",
+    value: function updateApellidoClick(evt) {
+      this.setState({
+        apellido: evt.target.value
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var isLoggedIn = this.state.isLoggedIn;
+      var button;
+
+      if (isLoggedIn == 0) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Correo, {
+          onClick: this.handleCorreoClick,
+          onChange: this.updateCorreoClick
+        });
+      }
+
+      if (isLoggedIn == 1) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Nombre, {
+          onClick: this.handleNombreClick,
+          onChange: this.updateNombreClick
+        });
+      }
+
+      if (isLoggedIn == 2) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Apellido, {
+          onClick: this.handleApellidoClick,
+          onChange: this.updateApellidoClick
+        });
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Camara, null);
+    }
+  }]);
+
+  return App;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+function Camara(props) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
       _useState2 = _slicedToArray(_useState, 2),
       dataUri = _useState2[0],
       setDataUri = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState4 = _slicedToArray(_useState3, 2),
+      correo = _useState4[0],
+      setCorreo = _useState4[1];
 
   var isFullscreen = false;
 
@@ -52760,18 +52884,84 @@ function App(props) {
   }
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ", dataUri ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ImagePreview__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    dataUri: dataUri,
-    isFullscreen: isFullscreen
+    dataUri: dataUri
   }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_html5_camera_photo__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    onTakePhotoAnimationDone: handleTakePhotoAnimationDone,
-    isFullscreen: isFullscreen,
-    imageType: react_html5_camera_photo__WEBPACK_IMPORTED_MODULE_2__["IMAGE_TYPES"].JPG,
-    isMaxResolution: true
+    onTakePhotoAnimationDone: handleTakePhotoAnimationDone
   }), " ");
 }
 
+function Correo(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "content"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "frame"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "frame__demos"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "frame__demo"
+  }, "La c\xE1psula del tiempo es una aplicaci\xF3n para enviar un mensaje a tu yo del futuro. Este mensaje te llegar\xE1 en dos a\xF1os."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "content__title-wrap-input"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    "class": "content__pretitle"
+  }, "Ingresa tu correo institucional sin @uniandes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: props.onChange,
+    type: "email",
+    placeholder: "Email",
+    "class": "content__input",
+    id: "exampleInputPassword1"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: props.onClick
+  }, "Ingresar")));
+}
+
+function Nombre(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "content"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "frame"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "frame__demos"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "frame__demo"
+  }, "La c\xE1psula del tiempo es una aplicaci\xF3n para enviar un mensaje a tu yo del futuro. Este mensaje te llegar\xE1 en dos a\xF1os."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "content__title-wrap-input"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    "class": "content__pretitle"
+  }, "Ingresa tu nombre"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: props.onChange,
+    type: "text",
+    placeholder: "Nombre",
+    "class": "content__input"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: props.onClick
+  }, "Ingresar")));
+}
+
+function Apellido(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "content"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "frame"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "frame__demos"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "frame__demo"
+  }, "La c\xE1psula del tiempo es una aplicaci\xF3n para enviar un mensaje a tu yo del futuro. Este mensaje te llegar\xE1 en dos a\xF1os."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "content__title-wrap-input"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: props.onChange,
+    type: "text",
+    placeholder: "Apellido",
+    "class": "content__input"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: props.onClick
+  }, "Ingresar")));
+}
+
 /* harmony default export */ __webpack_exports__["default"] = (App);
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById('app'));
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, {
+  isLoggedIn: 0
+}), document.getElementById('app'));
 
 /***/ }),
 

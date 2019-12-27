@@ -18,7 +18,7 @@ body {
 	--color-bg: #000;
 	--color-link: #5a5a5a;
 	--color-link-hover: #3eaaf1;
-	--color-alt: #3ba2e5;
+	--color-uniandes: #ffeb41;
 	--color-info: #e93f3b;
 	color: var(--color-text);
 	background-color: var(--color-bg);
@@ -29,7 +29,6 @@ body {
 
 .capsula {
 	--color-link-hover: #DFD98A;
-	--color-alt: #FF0;
 	--color-info: #D856BF;
 	--color-principal: #FFF;
 }
@@ -70,7 +69,7 @@ body {
 }
 
 a {
-  color: var(--color-alt);
+  color: var(--color-uniandes);
 }
 
 a:hover,
@@ -153,33 +152,70 @@ a:focus {
 	-ms-user-select: none;
 	user-select: none;
 }
+.content__title-wrap-input {
+	position: relative;
+	text-align: center;
+}
 
 .content__title-wrap a {
 	pointer-events: auto;
 }
 
 .content__pretitle {
-	color: var(--color-alt);
+	color: var(--color-uniandes);
 	font-size: 1.35rem;
 }
 
 .content__title {
 	color: var(--color-principal);
+
 	font-size: 6vw;
 	font-weight: normal;
 	margin: 0.5rem 0 1.5rem;
 	font-family: azo-sans-uber, sans-serif;
 }
+@keyframes blinker {
+  50% {
+    opacity: 0.6;
+  }
+}
+.content__input {
+  text-align: center;
+	color: var(--color-principal);
+	font-size: 6vw;
+  height: 6vw;
+  width: 80vw;
+	font-weight: normal;
+	margin: 0.5rem 0 1.5rem;
+	font-family: azo-sans-uber, sans-serif;
+  background: no-repeat center bottom, center calc(100% - 1px);
+  background-size: 0 100%, 100% 100%;
+  border: 0;
+  transition: background 0s ease-out;
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 0;
 
+  animation: blinker 1s linear infinite;
+  &::-webkit-input-placeholder,&:-ms-input-placeholder,&::placeholder  { /* Edge */
+  color: var(--color-principal);
+  animation: blinker 1s linear infinite;
+}
+
+
+}
+.content__input:focus {
+     outline:none;
+}
 .content__link {
 
-  color: var(--color-alt)!important;
+  color: var(--color-uniandes)!important;
 	text-decoration: underline;
 	font-family: azo-sans-uber, sans-serif;
 	font-size: 1.1rem;
 	color: inherit;
   padding:5px 22px;
-  border: 2px solid var(--color-alt);
+  border: 2px solid var(--color-uniandes);
   border-radius: 50px 20px;
 }
 

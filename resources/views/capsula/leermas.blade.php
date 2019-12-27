@@ -11,6 +11,7 @@
 			<div class="content">
 				<div id="app"></div>
 				<div class="content__title-wrap">
+					<span class="content__pretitle">Ingresa tu correo institucional sin @uniandes</span>
 					<span class="content__pretitle">Ingresa tu correo Uniandes</span>
 					<h2 class="content__title"><input type="text" class="text" name="foo" /></h2>
 					<a class="content__link" href="#">Join us</a>
