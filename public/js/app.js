@@ -52706,14 +52706,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ImagePreview__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ImagePreview */ "./resources/js/ImagePreview/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -52759,6 +52751,10 @@ function (_React$Component) {
     _this.handleCorreoClick = _this.handleCorreoClick.bind(_assertThisInitialized(_this));
     _this.handleNombreClick = _this.handleNombreClick.bind(_assertThisInitialized(_this));
     _this.handleApellidoClick = _this.handleApellidoClick.bind(_assertThisInitialized(_this));
+    _this.handleMensajeClick = _this.handleMensajeClick.bind(_assertThisInitialized(_this));
+    _this.handleEstadoClick = _this.handleEstadoClick.bind(_assertThisInitialized(_this));
+    _this.updateEstadoClick = _this.updateEstadoClick.bind(_assertThisInitialized(_this));
+    _this.updateMensajeClick = _this.updateMensajeClick.bind(_assertThisInitialized(_this));
     _this.updateCorreoClick = _this.updateCorreoClick.bind(_assertThisInitialized(_this));
     _this.updateNombreClick = _this.updateNombreClick.bind(_assertThisInitialized(_this));
     _this.updateApellidoClick = _this.updateApellidoClick.bind(_assertThisInitialized(_this));
@@ -52768,7 +52764,9 @@ function (_React$Component) {
       correo: "",
       nombre: "",
       apellido: "",
-      image: ""
+      image: "",
+      estado: "",
+      mensaje: ""
     };
     return _this;
   }
@@ -52794,6 +52792,36 @@ function (_React$Component) {
       console.log(this.state);
       this.setState({
         isLoggedIn: 3
+      });
+    }
+  }, {
+    key: "handleMensajeClick",
+    value: function handleMensajeClick() {
+      console.log(this.state);
+      this.setState({
+        isLoggedIn: 4
+      });
+    }
+  }, {
+    key: "handleEstadoClick",
+    value: function handleEstadoClick() {
+      console.log(this.state);
+      this.setState({
+        isLoggedIn: 5
+      });
+    }
+  }, {
+    key: "updateEstadoClick",
+    value: function updateEstadoClick(evt) {
+      this.setState({
+        estado: evt.target.value
+      });
+    }
+  }, {
+    key: "updateMensajeClick",
+    value: function updateMensajeClick(evt) {
+      this.setState({
+        mensaje: evt.target.value
       });
     }
   }, {
@@ -52835,6 +52863,8 @@ function (_React$Component) {
         imagen: dataUri,
         nombre: this.state.nombre,
         apellido: this.state.apellido,
+        mensaje: this.state.mensaje,
+        estado: this.state.estado,
         correo: this.state.correo
       }).then(function (response) {
         console.log(response.data);
@@ -52872,6 +52902,20 @@ function (_React$Component) {
         });
       }
 
+      if (isLoggedIn == 3) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Mensaje, {
+          onClick: this.handleMensajeClick,
+          onChange: this.updateMensajeClick
+        });
+      }
+
+      if (isLoggedIn == 4) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Estado, {
+          onClick: this.handleEstadoClick,
+          onChange: this.updateEstadoClick
+        });
+      }
+
       if (!image) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_html5_camera_photo__WEBPACK_IMPORTED_MODULE_2___default.a, {
           onTakePhoto: function onTakePhoto(dataUri) {
@@ -52888,47 +52932,6 @@ function (_React$Component) {
 
   return App;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-function Camara(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
-      _useState2 = _slicedToArray(_useState, 2),
-      dataUri = _useState2[0],
-      setDataUri = _useState2[1];
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
-      _useState4 = _slicedToArray(_useState3, 2),
-      correo = _useState4[0],
-      setCorreo = _useState4[1];
-
-  var isFullscreen = false;
-
-  function fileUpload(image) {
-    axios__WEBPACK_IMPORTED_MODULE_5___default.a.post('/insert', {
-      imagen: image
-    }).then(function (response) {
-      console.log(response.data);
-    })["catch"](function (error) {
-      console.log(error.response);
-    });
-  }
-
-  function handleTakePhoto(dataUri) {
-    // Do stuff with the photo...
-    console.log('takePhoto');
-    fileUpload(dataUri);
-  }
-
-  function handleTakePhotoAnimationDone(dataUri) {
-    console.log('takePhoto');
-    setDataUri(dataUri);
-  }
-
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ", dataUri ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ImagePreview__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    dataUri: dataUri
-  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_html5_camera_photo__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    onTakePhotoAnimationDone: handleTakePhotoAnimationDone
-  }), " ");
-}
 
 function Correo(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -52977,6 +52980,29 @@ function Nombre(props) {
   }, "Ingresar")));
 }
 
+function Estado(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "content"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "frame"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "frame__demos"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "frame__demo"
+  }, "La c\xE1psula del tiempo es una aplicaci\xF3n para enviar un mensaje a tu yo del futuro. Este mensaje te llegar\xE1 en dos a\xF1os."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "content__title-wrap-input"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    "class": "content__pretitle"
+  }, "Ingresa tu nombre"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: props.onChange,
+    type: "checkbox",
+    name: "vehicle1",
+    value: "1"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: props.onClick
+  }, "Ingresar")));
+}
+
 function Apellido(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "content"
@@ -52992,6 +53018,27 @@ function Apellido(props) {
     onChange: props.onChange,
     type: "text",
     placeholder: "Apellido",
+    "class": "content__input"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: props.onClick
+  }, "Ingresar")));
+}
+
+function Mensaje(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "content"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "frame"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "frame__demos"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "frame__demo"
+  }, "La c\xE1psula del tiempo es una aplicaci\xF3n para enviar un mensaje a tu yo del futuro. Este mensaje te llegar\xE1 en dos a\xF1os."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "content__title-wrap-input"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: props.onChange,
+    type: "text",
+    placeholder: "Mensaje",
     "class": "content__input"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: props.onClick

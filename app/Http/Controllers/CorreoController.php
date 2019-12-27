@@ -48,13 +48,16 @@ class CorreoController extends Controller
         $imageName = 'image_' . time() . '.' . $image_extension[1]; //generating unique file name;
         Storage::disk('public')->put($imageName, base64_decode($image));
 
+        $mensaje = $request->input('mensaje');
+        $estado = $request->input('estado');
+
         $model->create(
             [
                 'fecha_creacion' => time(),
-                'mensaje' => "hola",
+                'mensaje' => $mensaje,
                 'usuario_id' => 1,
                 'imagen' => $imageName,
-                'estado' => 1
+                'estado' => $estado
             ]
         );
         return response()->json([
