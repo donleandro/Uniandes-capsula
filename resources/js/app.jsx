@@ -208,7 +208,7 @@ function Mensaje(props) {
 
 					</div>
 				</div>
-        <div className="content__title-wrap-input">
+        <div className="content__title-wrap-input"> 
         <textarea onChange={props.onChange} className="content__input-caja" rows="4" cols="50" defaultValue="Mensaje"/>
           </div>
         <button onClick={props.onClick} >Siguiente</button>
