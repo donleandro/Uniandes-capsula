@@ -78,7 +78,6 @@ class App extends React.Component {
   handleTakePhoto (dataUri) {
     // Do stuff with the photo...
     this.setState({image: dataUri});
-    console.log(this.state);
     this.fileUpload(dataUri);
   }
   fileUpload(dataUri) {
@@ -119,9 +118,20 @@ class App extends React.Component {
       return <Estado onClick={this.handleEstadoClick} onChange={this.updateEstadoClick} />;
     }
     if(!image){
-      return <Camera
-        onTakePhoto = { (dataUri) => { this.handleTakePhoto(dataUri); } }
-      />;
+      return (
+        <main>
+          <div className="content">
+            <div className="frame">
+              <div className="frame__demos">
+                <div className="frame__demo">Solo tienes una oportunidad para tomar la foto.</div>
+              </div>
+            </div>
+              <Camera
+                onTakePhoto = { (dataUri) => { this.handleTakePhoto(dataUri); } }
+              />
+          </div>
+        </main>
+      );
     }
     return < Final datauri = {this.state} />
   }
@@ -208,8 +218,8 @@ function Mensaje(props) {
 
 					</div>
 				</div>
-        <div className="content__title-wrap-input"> 
-        <textarea onChange={props.onChange} className="content__input-caja" rows="4" cols="50" defaultValue="Mensaje"/>
+        <div className="content__title-wrap-input">
+        <textarea onChange={props.onChange} className="content__input-caja" rows="4" cols="50" placeholder="Escribe tu mensaje"/>
           </div>
         <button onClick={props.onClick} >Siguiente</button>
 			</div>
@@ -238,7 +248,7 @@ function Final(props){
           <span className="content__pretitle">Para: {props.datauri.correo}@uniandes.edu.co</span>
           <span className="content__input">{props.datauri.mensaje}</span>
           </div>
-        <button>ENVIAR</button>
+        <a className="content__link" href="..">ENVIAR</a>
 			</div>
 		</main>
   );

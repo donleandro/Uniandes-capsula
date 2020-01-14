@@ -52864,7 +52864,6 @@ function (_React$Component) {
       this.setState({
         image: dataUri
       });
-      console.log(this.state);
       this.fileUpload(dataUri);
     }
   }, {
@@ -52930,11 +52929,19 @@ function (_React$Component) {
       }
 
       if (!image) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_html5_camera_photo__WEBPACK_IMPORTED_MODULE_2___default.a, {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "content"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "frame"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "frame__demos"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "frame__demo"
+        }, "Solo tienes una oportunidad para tomar la foto."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_html5_camera_photo__WEBPACK_IMPORTED_MODULE_2___default.a, {
           onTakePhoto: function onTakePhoto(dataUri) {
             _this2.handleTakePhoto(dataUri);
           }
-        });
+        })));
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Final, {
@@ -53043,7 +53050,7 @@ function Mensaje(props) {
     className: "content__input-caja",
     rows: "4",
     cols: "50",
-    defaultValue: "Mensaje"
+    placeholder: "Escribe tu mensaje"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: props.onClick
   }, "Siguiente")));
@@ -53071,7 +53078,10 @@ function Final(props) {
     className: "content__pretitle"
   }, "Para: ", props.datauri.correo, "@uniandes.edu.co"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "content__input"
-  }, props.datauri.mensaje)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "ENVIAR")));
+  }, props.datauri.mensaje)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    className: "content__link",
+    href: ".."
+  }, "ENVIAR")));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
