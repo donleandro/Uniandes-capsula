@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Correo;
 use App\User;
 use Illuminate\Http\File;
+use Spatie\Dropbox\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -12,6 +13,14 @@ use Illuminate\Support\Facades\Hash;
 
 class CorreoController extends Controller
 {
+
+    public function __construct()
+    {
+        // Necesitamos obtener una instancia de la clase Client la cual tiene algunos métodos
+        // que serán necesarios.
+        $this->dropbox = Storage::disk('dropbox')->getDriver()->getAdapter()->getClient();   
+    }
+
     /**
          * Muestra todos los correos.
          *
@@ -51,15 +60,20 @@ class CorreoController extends Controller
 
 
         $user_id = $this->crearUsuario($request);
-
+ 
         $file_data = $request->input('imagen');
         $image = $request->input('imagen'); // image base64 encoded
         preg_match("/data:image\/(.*?);/", $image, $image_extension); // extract the image extension
         $image = preg_replace('/data:image\/(.*?);base64,/', '', $image); // remove the type part
         $image = str_replace(' ', '+', $image);
         $imageName = $request->input('correo') . '_' . time() . '.' . $image_extension[1]; //generating unique file name;
-        Storage::disk('public')->put($imageName, base64_decode($image));
+        Storage::disk('dropbox')->put($imageName, base64_decode($image));   
 
+        $response = $this->dropbox->createSharedLinkWithSettings(
+            $imageName, 
+            ["requested_visibility" => "public"]
+        );
+ 
         $mensaje = $request->input('mensaje');
         $estado = $request->input('estado');
 
@@ -68,7 +82,7 @@ class CorreoController extends Controller
                 'fecha_creacion' => time(),
                 'mensaje' => $mensaje,
                 'usuario_id' => $user_id,
-                'imagen' => $imageName,
+                'imagen' => $response['url'],                
                 'estado' => $estado
             ]
         );
