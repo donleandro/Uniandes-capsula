@@ -1,3 +1,24 @@
+@font-face {
+  font-family: "Dax";
+  src: url(/fonts/Dax-Medium.woff2?c1e26f38a2def716c64612232bbbcad2) format("woff2"), url(/fonts/Dax-Medium.woff?4cc170eb14d7b3cf318bb6c2316ec9e5) format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Dax";
+  src: url(/fonts/Dax-Bold.woff2?80b21f8e4cffb7efc4adb82f14ea739a) format("woff2"), url(/fonts/Dax-Bold.woff?e9be0969a1d37d4d2c1d79895dada78f) format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Dax";
+  src: url(/fonts/Dax-Light.woff2?b561cbe1ec76889fc2517b8c14bde488) format("woff2"), url(/fonts/Dax-Light.woff?85214d1a170a9568cecf1b85e381a877) format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
 .container {
   width: 100vw;
   height: 100vh;
@@ -23,7 +44,7 @@ body {
   --color-info: #e93f3b;
   color: var(--color-text);
   background-color: var(--color-bg);
-  font-family: ltc-bodoni-175, serif;
+  font-family: Dax, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -108,7 +129,7 @@ a:hover {
 .frame__title {
   font-size: 1rem;
   margin: 0 0 1rem;
-  font-weight: normal;
+  font-weight: 900;
 }
 
 .frame__links {
@@ -187,9 +208,10 @@ a:hover {
 .content__title {
   color: var(--color-principal);
   font-size: 6vw;
-  font-weight: normal;
+  font-weight: 900;
   margin: 0.5rem 0 1.5rem;
-  font-family: azo-sans-uber, sans-serif;
+  font-family: "Lato", sans-serif;
+  text-transform: uppercase;
 }
 
 @-webkit-keyframes blinker {
@@ -210,9 +232,9 @@ a:hover {
   font-size: 6vw;
   height: 6vw;
   width: 80vw;
-  font-weight: normal;
+  font-weight: 900;
   margin: 0.5rem 0 1.5rem;
-  font-family: azo-sans-uber, sans-serif;
+  font-family: "Lato", sans-serif;
   background: no-repeat center bottom, center calc(100% - 1px);
   background-size: 0 100%, 100% 100%;
   border: 0;
@@ -223,6 +245,7 @@ a:hover {
   border-radius: 0;
   -webkit-animation: blinker 1s linear infinite;
           animation: blinker 1s linear infinite;
+  text-transform: uppercase;
 }
 
 .content__input .content__checkbox {
@@ -247,9 +270,9 @@ a:hover {
   font-size: 6vw;
   height: 50vh;
   width: 80vw;
-  font-weight: normal;
+  font-weight: 900;
   margin: 0.5rem 0 1.5rem;
-  font-family: azo-sans-uber, sans-serif;
+  font-family: "Lato", sans-serif;
   background: no-repeat center bottom, center calc(100% - 1px);
   background-size: 0 100%, 100% 100%;
   border: 0;
@@ -269,7 +292,7 @@ a:hover {
 .content__link {
   color: var(--color-uniandes) !important;
   text-decoration: underline;
-  font-family: azo-sans-uber, sans-serif;
+  font-family: "Lato", sans-serif;
   font-size: 1.1rem;
   color: inherit;
   padding: 5px 22px;
