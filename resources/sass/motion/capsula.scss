@@ -38,6 +38,8 @@
     font-size: 18px;
 }
 
+$principal: #FFFFFF !default;
+
 body {
     margin: 0;
     --color-text: #fff;
@@ -56,7 +58,7 @@ body {
 .capsula {
     --color-link-hover: #DFD98A;
     --color-info: #D856BF;
-    --color-principal: #FFF;
+    --color-principal: #FFFFFF;
 }
 /* Page Loader */
 
@@ -139,18 +141,22 @@ a:hover {
         display: block;
         padding-top: 0.5rem;
         text-decoration: none;
-        // color: var(--color-link);
         outline: none;
         padding: 10px;
-        background-color: #ffffffaa;
+        background-color: rgba(255, 255, 255, 0.3);
         color: var(--color-bg);
     }
+
 
     &__info {
         color: var(--color-info);
     }
 }
-
+.fondo{
+  &-amarillo{
+    background-color: #ffeb41;
+  }
+}
 .frame__demo--current,
 .frame__demo--current:hover {
     color: var(--color-link-hover);
@@ -209,7 +215,7 @@ a:hover {
 
 .content__input {
     text-align: center;
-    color: var(--color-principal);
+    color: $principal;
     font-size: 6vw;
     height: 6vw;
     width: 80vw;
@@ -243,7 +249,7 @@ a:hover {
 }
 .content__input-caja {
     text-align: center;
-    color: var(--color-principal);
+    color: $principal;
     font-size: 6vw;
     height: 50vh;
     width: 80vw;

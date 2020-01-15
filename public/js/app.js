@@ -52936,7 +52936,7 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "frame__demos"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "frame__demo"
+          className: "frame__demo fondo-amarillo"
         }, "Solo tienes una oportunidad para tomar la foto."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_html5_camera_photo__WEBPACK_IMPORTED_MODULE_2___default.a, {
           onTakePhoto: function onTakePhoto(dataUri) {
             _this2.handleTakePhoto(dataUri);
@@ -53007,11 +53007,12 @@ function Estado(props) {
     className: "content__input"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "content__checkbox"
-  }, "\xBFDeseas que el mensaje no sea p\xFAblico?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }, "\xBFDeseas que el mensaje sea p\xFAblico?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     onChange: props.onChange,
     type: "checkbox",
     name: "vehicle1",
-    value: "1"
+    value: "1",
+    checked: true
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: props.onClick
   }, "Ingresar")));

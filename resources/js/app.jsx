@@ -123,7 +123,7 @@ class App extends React.Component {
           <div className="content">
             <div className="frame">
               <div className="frame__demos">
-                <div className="frame__demo">Solo tienes una oportunidad para tomar la foto.</div>
+                <div className="frame__demo fondo-amarillo">Solo tienes una oportunidad para tomar la foto.</div>
               </div>
             </div>
               <Camera
@@ -184,8 +184,9 @@ function Estado(props){
 					</div>
 				</div>
         <div className="content__input">
-          <span className="content__checkbox">¿Deseas que el mensaje no sea público?</span>
-          <input onChange={props.onChange} type="checkbox" name="vehicle1" value="1" />
+          <span className="content__checkbox">¿Deseas que el mensaje sea público?</span>
+          <input onChange={props.onChange} type="checkbox" name="vehicle1" value="1" checked />
+
           </div>
         <button onClick={props.onClick} >Ingresar</button>
 			</div>
