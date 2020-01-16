@@ -114,9 +114,6 @@ class App extends React.Component {
     if (isLoggedIn==3) {
       return <Mensaje onClick={this.handleMensajeClick} onChange={this.updateMensajeClick} />;
     }
-    if (isLoggedIn==4) {
-      return <Estado onClick={this.handleEstadoClick} onChange={this.updateEstadoClick} />;
-    }
     if(!image){
       return (
         <main>

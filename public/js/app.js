@@ -52921,13 +52921,6 @@ function (_React$Component) {
         });
       }
 
-      if (isLoggedIn == 4) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Estado, {
-          onClick: this.handleEstadoClick,
-          onChange: this.updateEstadoClick
-        });
-      }
-
       if (!image) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "content"
