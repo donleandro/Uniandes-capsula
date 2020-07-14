@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
+use Auth;
+use Socialite;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -26,7 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -37,4 +40,57 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('azure')->redirect();
+    }
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return \Illuminate\Http\Response
+     */
+     public function handleProviderCallback()
+     {
+         $user = Socialite::driver('azure')->user();
+         $givenName  =  explode(" ", $user->user["givenName"]);
+         $surname  =  explode(" ", $user->user["surname"]);
+         $jobTitle  = $user->user["jobTitle"];
+         $usuario = User::where('email',$user->email)
+                           ->first();
+         if (!$usuario) {
+           session()->flash('message', 'Usuario no existe');
+           return redirect('login');
+         }
+         $usuario->update(array(
+                             'name' => $givenName[0],
+                             'apellido' => $surname[0],
+                           ));
+         $user = User::where('email',$user->email)->first();
+         if ($user) {
+           Auth::login($user);
+           return redirect($this->redirectTo);
+         }
+         else{
+           session()->flash('message', 'Usuario no existe');
+           return redirect('login');
+         }
+     }
+
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function local()
+    {
+         return view('auth.login-local');
+    }
+
+
 }
