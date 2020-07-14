@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="es" class="no-js">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,13 +19,14 @@
 	<body class="capsula">
 		<main>
 			<div class="content">
-				<div id="app"></div>
+				<div id="apps"></div>
 				<div class="frame">
 					<div class="frame__demos">
 						<div class="frame__demo">La cápsula del tiempo es una aplicación para enviar un mensaje a tu yo del futuro. Este mensaje te llegará en dos años.</div>
 					</div>
 				</div>
 				<div class="content__title-wrap">
+					<img class="logo-Uniandes" style="padding-bottom:20px;" src="{{ asset('img') }}/logoUniandes.svg" width="20%" />
 					<span class="content__pretitle">Presiona para acelerar</span>
 					<h2 class="content__title">Cápsula del Tiempo</h2>
 					<a class="content__link" href="{{ url('/capsula') }}">Ingresar</a>
