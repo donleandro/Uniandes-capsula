@@ -4,9 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>{{ __('Capsula del Tiempo - DSIT') }}</title>
-		<meta name="description" content="A Three.js powered animation that resembles the nightly view of fast cars on a road." />
-		<meta name="keywords" content="webgl, three.js, cars, road, highway, lights, speed, web development, demo, javascript" />
-		<meta name="author" content="Codrops" />
+		<meta http-equiv="X-UA-Compatible" content="IE=8" />
 		<link rel="shortcut icon" href="favicon.ico">
 		<link rel="stylesheet" href="https://use.typekit.net/uok8swb.css">
 		<link rel="stylesheet" type="text/css" href="css/motion-ui.css" />

@@ -78,7 +78,6 @@ class App extends React.Component {
   handleTakePhoto (dataUri) {
     // Do stuff with the photo...
     this.setState({image: dataUri});
-    console.log(this.state);
     this.fileUpload(dataUri);
   }
   fileUpload(dataUri) {
@@ -115,13 +114,21 @@ class App extends React.Component {
     if (isLoggedIn==3) {
       return <Mensaje onClick={this.handleMensajeClick} onChange={this.updateMensajeClick} />;
     }
-    if (isLoggedIn==4) {
-      return <Estado onClick={this.handleEstadoClick} onChange={this.updateEstadoClick} />;
-    }
     if(!image){
-      return <Camera
-        onTakePhoto = { (dataUri) => { this.handleTakePhoto(dataUri); } }
-      />;
+      return (
+        <main>
+          <div className="content">
+            <div className="frame">
+              <div className="frame__demos">
+                <div className="frame__demo fondo-amarillo">Solo tienes una oportunidad para tomar la foto.</div>
+              </div>
+            </div>
+              <Camera
+                onTakePhoto = { (dataUri) => { this.handleTakePhoto(dataUri); } }
+              />
+          </div>
+        </main>
+      );
     }
     return < Final datauri = {this.state} />
   }
@@ -174,8 +181,9 @@ function Estado(props){
 					</div>
 				</div>
         <div className="content__input">
-          <span className="content__checkbox">¿Deseas que el mensaje no sea público?</span>
-          <input onChange={props.onChange} type="checkbox" name="vehicle1" value="1" />
+          <span className="content__checkbox">¿Deseas que el mensaje sea público?</span>
+          <input onChange={props.onChange} type="checkbox" name="vehicle1" value="1" checked />
+
           </div>
         <button onClick={props.onClick} >Ingresar</button>
 			</div>
@@ -208,8 +216,8 @@ function Mensaje(props) {
 
 					</div>
 				</div>
-        <div className="content__title-wrap-input"> 
-        <textarea onChange={props.onChange} className="content__input-caja" rows="4" cols="50" defaultValue="Mensaje"/>
+        <div className="content__title-wrap-input">
+        <textarea onChange={props.onChange} className="content__input-caja" rows="4" cols="50" placeholder="Escribe tu mensaje"/>
           </div>
         <button onClick={props.onClick} >Siguiente</button>
 			</div>
@@ -238,7 +246,7 @@ function Final(props){
           <span className="content__pretitle">Para: {props.datauri.correo}@uniandes.edu.co</span>
           <span className="content__input">{props.datauri.mensaje}</span>
           </div>
-        <button>ENVIAR</button>
+        <a className="content__link" href="..">ENVIAR</a>
 			</div>
 		</main>
   );
