@@ -17,7 +17,7 @@
 	<body class="capsula">
 		<main>
 			<div class="content">
-				<div id="apps"></div>
+				<div id="app"></div>
 				<div class="frame">
 					<div class="frame__demos">
 						<div class="frame__demo">La cápsula del tiempo es una aplicación para enviar un mensaje a tu yo del futuro. Este mensaje te llegará en dos años.</div>
