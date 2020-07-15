@@ -14,10 +14,6 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
-
-        if (App::environment('production')) {
-          return route('auth');
-         }
-        return route('login');
-    }
+      return route('auth');
+     }
 }
