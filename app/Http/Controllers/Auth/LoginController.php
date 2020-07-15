@@ -72,7 +72,7 @@ class LoginController extends Controller
            $usuario->surname2 = $surname[1];
            $usuario->email = $email;
            $usuario->password = Hash::make('111111');
-
+           dd($usuario);
            $usuario->create();
          }
          else{
