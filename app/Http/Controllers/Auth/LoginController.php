@@ -60,7 +60,6 @@ class LoginController extends Controller
          $user = Socialite::driver('azure')->user();
          $givenName  =  explode(" ", $user->user["givenName"]);
          $surname  =  explode(" ", $user->user["surname"]);
-         $jobTitle  = $user->user["jobTitle"];
          $usuario = User::where('email',$user->email)
                            ->first();
          if (!$usuario) {
@@ -69,7 +68,9 @@ class LoginController extends Controller
          }
          $usuario->update(array(
                              'name' => $givenName[0],
+                             'name2' => $givenName[1],
                              'apellido' => $surname[0],
+                             'apellido2' => $surname[1],
                            ));
          $user = User::where('email',$user->email)->first();
          if ($user) {
