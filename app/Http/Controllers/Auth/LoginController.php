@@ -72,7 +72,6 @@ class LoginController extends Controller
              'apellido' => $surname[0],
              'apellido2' => $surname[1],
              'email' => $email,
-             'email_verified_at' => now(),
              'password' => Hash::make('111111'),
            ));
            dd($usuario);
