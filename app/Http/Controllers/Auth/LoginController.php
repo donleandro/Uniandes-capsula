@@ -66,8 +66,8 @@ class LoginController extends Controller
                            ->first();
          if (!$usuario) {
            $usuario = new User();
-           dd($usuario);
            $usuario->name = $givenName[0];
+           dd($usuario);
            $usuario->name2 = $givenName[1];
            $usuario->surname = $surname[0];
            $usuario->surname2 = $surname[1];
