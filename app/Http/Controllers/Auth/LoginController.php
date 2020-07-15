@@ -58,21 +58,22 @@ class LoginController extends Controller
      public function handleProviderCallback()
      {
          $user = Socialite::driver('azure')->user();
-         dd($user);
+         
          $givenName  =  explode(" ", $user->user["givenName"]);
          $surname  =  explode(" ", $user->user["surname"]);
+         $email = $user->email;
          $usuario = User::where('email',$user->email)
                            ->first();
          if (!$usuario) {
-           // $usuario->store(array(
-           //   'name' => $givenName[0],
-           //   'name2' => $givenName[1],
-           //   'apellido' => $surname[0],
-           //   'apellido2' => $surname[1],
-           //   'email' => 'je.peralta@uniandes.edu.co',
-           //   'email_verified_at' => now(),
-           //   'password' => Hash::make('111111'),
-           // ));
+           $usuario->store(array(
+             'name' => $givenName[0],
+             'name2' => $givenName[1],
+             'apellido' => $surname[0],
+             'apellido2' => $surname[1],
+             'email' => $email,
+             'email_verified_at' => now(),
+             'password' => Hash::make('111111'),
+           ));
            dd($usuario);
            session()->flash('message', 'Usuario no existe');
            return redirect('login');
