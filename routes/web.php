@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,15 +12,17 @@
 |
 */
 
+Auth::routes(/*['register' => false]*/);
+
 Route::get('/', function () {
     return view('capsula.inicio');
-});
-Route::get('/capsula', function () {
-    return view('capsula.capsula');
 });
 Route::get('/info', function () {
     return view('capsula.leermas');
 });
+// Route::put('/info', function () {
+//     return view('capsula.leermas');
+// });
 Route::get('/enviado', function () {
     return view('capsula.enviado');
 });
@@ -34,5 +37,13 @@ Route::get('login/local', 'Auth\LoginController@local')->name('login-local');
 Route::get('auth', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/callback', 'Auth\LoginController@handleProviderCallback');
 
-Route::get('register', function () { return redirect('home'); });
-Route::post('register', function () { return redirect('home'); });
+Route::group(['middleware' => 'auth'], function () {
+  Route::post('/upload', function(Request $request)
+  {
+    dd($request->all());
+  });
+  Route::get('/capsula', function () {
+      return view('capsula.capsula');
+  });
+
+});
