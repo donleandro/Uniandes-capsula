@@ -73,7 +73,7 @@ class LoginController extends Controller
            $usuario->email = $email;
            $usuario->password = Hash::make('111111');
 
-           $usuario->save();
+           $usuario->create();
          }
          else{
            $usuario->update(array(
