@@ -15,10 +15,9 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
 
-
-        if($this->app->environment('production')) {
+        if (App::environment('production')) {
           return route('auth');
-        }
+         }
         return route('login');
     }
 }
