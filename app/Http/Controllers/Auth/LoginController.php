@@ -66,14 +66,14 @@ class LoginController extends Controller
                            ->first();
          if (!$usuario) {
            $usuario = new User();
-           $usuario->store(array(
-             'name' => $givenName[0],
-             'name2' => $givenName[1],
-             'apellido' => $surname[0],
-             'apellido2' => $surname[1],
-             'email' => $email,
-             'password' => Hash::make('111111'),
-           ));
+           $usuario->name = $givenName[0];
+           $usuario->name2 = $givenName[1];
+           $usuario->surname = $surname[0];
+           $usuario->surname2 = $surname[1];
+           $usuario->email = $email;
+           $usuario->password = Hash::make('111111');
+
+           $user->save();
            dd($usuario);
          }
          else{
