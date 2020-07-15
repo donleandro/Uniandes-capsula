@@ -17,6 +17,7 @@
     <!-- <link href="{{ asset('/css/material-dashboard.css') }}" rel="stylesheet" /> -->
     </head>
     <body class="{{ $class ?? '' }}">
+      {{auth()->user()}}
       <div class="container">
         <div id="app"> </div>
       </div>
