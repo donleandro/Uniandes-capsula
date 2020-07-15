@@ -62,6 +62,7 @@ class LoginController extends Controller
          $surname  =  explode(" ", $user->user["surname"]);
          $usuario = User::where('email',$user->email)
                            ->first();
+                           dd($usuario);
          if (!$usuario) {
            session()->flash('message', 'Usuario no existe');
            return redirect('login');
