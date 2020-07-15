@@ -66,7 +66,6 @@ class LoginController extends Controller
                            ->first();
          if (!$usuario) {
            $usuario = new User();
-           dd($usuario);
            $usuario->store(array(
              'name' => $givenName[0],
              'name2' => $givenName[1],
@@ -76,15 +75,16 @@ class LoginController extends Controller
              'email_verified_at' => now(),
              'password' => Hash::make('111111'),
            ));
-           session()->flash('message', 'Usuario no existe');
-           return redirect('login');
+           dd($usuario);
          }
-         $usuario->update(array(
-                             'name' => $givenName[0],
-                             'name2' => $givenName[1],
-                             'apellido' => $surname[0],
-                             'apellido2' => $surname[1],
-                           ));
+         else{
+           $usuario->update(array(
+             'name' => $givenName[0],
+             'name2' => $givenName[1],
+             'apellido' => $surname[0],
+             'apellido2' => $surname[1],
+           ));
+         }
          $user = User::where('email',$user->email)->first();
          if ($user) {
            Auth::login($user);
