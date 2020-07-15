@@ -72,8 +72,8 @@ class LoginController extends Controller
            $usuario->surname2 = $surname[1];
            $usuario->email = $email;
            $usuario->password = Hash::make('111111');
+           $usuario->save();
            dd($usuario);
-           $usuario->create();
          }
          else{
            $usuario->update(array(
