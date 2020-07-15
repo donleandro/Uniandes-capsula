@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
 use Auth;
 use Socialite;
 use App\User;
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -70,7 +71,7 @@ class LoginController extends Controller
            $usuario->name2 = $givenName[1];
            $usuario->surname = $surname[0];
            $usuario->surname2 = $surname[1];
-           dd($usuario);
+           // dd($usuario);
            $usuario->email = $email;
            $usuario->password = Hash::make('111111');
            $usuario->save();
@@ -79,8 +80,8 @@ class LoginController extends Controller
            $usuario->update(array(
              'name' => $givenName[0],
              'name2' => $givenName[1],
-             'apellido' => $surname[0],
-             'apellido2' => $surname[1],
+             'surname' => $surname[0],
+             'surname2' => $surname[1],
            ));
          }
          $user = User::where('email',$user->email)->first();
