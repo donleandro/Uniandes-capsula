@@ -67,14 +67,13 @@ class LoginController extends Controller
          if (!$usuario) {
            $usuario = new User();
            $usuario->name = $givenName[0];
-           dd($usuario);
            $usuario->name2 = $givenName[1];
            $usuario->surname = $surname[0];
            $usuario->surname2 = $surname[1];
            $usuario->email = $email;
            $usuario->password = Hash::make('111111');
 
-           $user->save();
+           $usuario->save();
          }
          else{
            $usuario->update(array(
@@ -85,6 +84,7 @@ class LoginController extends Controller
            ));
          }
          $user = User::where('email',$user->email)->first();
+         dd($user);
          if ($user) {
            Auth::login($user);
            return redirect($this->redirectTo);
