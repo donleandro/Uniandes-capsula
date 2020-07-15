@@ -66,6 +66,7 @@ class LoginController extends Controller
                            ->first();
          if (!$usuario) {
            $usuario = new User();
+           dd($usuario);
            $usuario->name = $givenName[0];
            $usuario->name2 = $givenName[1];
            $usuario->surname = $surname[0];
@@ -74,7 +75,6 @@ class LoginController extends Controller
            $usuario->password = Hash::make('111111');
 
            $user->save();
-           dd($usuario);
          }
          else{
            $usuario->update(array(
