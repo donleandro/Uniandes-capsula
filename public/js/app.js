@@ -52649,7 +52649,6 @@ var ImagePreview = function ImagePreview(_ref) {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat'
   };
-  console.log(dataUri);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "content",
     style: divStyle

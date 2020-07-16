@@ -10,13 +10,12 @@ export const ImagePreview = ({ dataUri }) => {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat'
   };
-  console.log(dataUri);
   return (
     <main>
 			<div class="content" style={divStyle}>
 				<div class="frame">
 					<div class="frame__demos">
-						
+
 					</div>
 				</div>
         <div class="content__title-wrap-input">
