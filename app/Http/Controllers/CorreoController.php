@@ -57,12 +57,16 @@ class CorreoController extends Controller
         ]);
       $user_id  = Auth::id();
 
+      return response()->json([
+        dd(Auth::user())
+    ]);
+
         $file_data = $request->input('imagen');
         $image = $request->input('imagen'); // image base64 encoded
         preg_match("/data:image\/(.*?);/", $image, $image_extension); // extract the image extension
         $image = preg_replace('/data:image\/(.*?);base64,/', '', $image); // remove the type part
         $image = str_replace(' ', '+', $image);
-        $imageName = $request->input('correo') . '_' . time() . '.' . $image_extension[1]; //generating unique file name;
+        $imageName = 'Usuario-'. $user_id . '_' . time() . '.' . $image_extension[1]; //generating unique file name;
         Storage::disk('dropbox')->put($imageName, base64_decode($image));
 
         $response = $this->dropbox->createSharedLinkWithSettings(
