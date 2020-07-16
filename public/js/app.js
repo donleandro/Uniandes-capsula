@@ -52920,7 +52920,7 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "content"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "frame"
+          className: "frame frame__cam"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "frame__demos"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

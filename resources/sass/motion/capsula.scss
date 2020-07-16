@@ -117,7 +117,10 @@ a:hover {
     text-align: center;
     position: relative;
     z-index: 1000;
-    position: fixed;
+
+    &__cam{
+      position: fixed!important;
+    }
 
     &__title {
         font-size: 1rem;

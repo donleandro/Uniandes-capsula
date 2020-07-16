@@ -124,7 +124,10 @@ a:hover {
   text-align: center;
   position: relative;
   z-index: 1000;
-  position: fixed;
+}
+
+.frame__cam {
+  position: fixed !important;
 }
 
 .frame__title {

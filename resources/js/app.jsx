@@ -114,7 +114,7 @@ class App extends React.Component {
       return (
         <main>
           <div className="content">
-            <div className="frame">
+            <div className="frame frame__cam">
               <div className="frame__demos">
                 <div className="frame__demo fondo-amarillo">Solo tienes una oportunidad para tomar la foto.</div>
               </div>
