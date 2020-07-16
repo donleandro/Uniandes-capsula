@@ -55,12 +55,7 @@ class CorreoController extends Controller
         $this->Validate($request, [
             'mensaje' => 'required|max:1200',
         ]);
-      $user_id  = Auth::id();
-
-      return response()->json([
-        dd(Auth::user())
-    ]);
-
+        $user_id  = Auth::id();
         $file_data = $request->input('imagen');
         $image = $request->input('imagen'); // image base64 encoded
         preg_match("/data:image\/(.*?);/", $image, $image_extension); // extract the image extension
