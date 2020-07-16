@@ -52776,7 +52776,7 @@ function (_React$Component) {
     _this.updateApellidoClick = _this.updateApellidoClick.bind(_assertThisInitialized(_this));
     _this.handleTakePhoto = _this.handleTakePhoto.bind(_assertThisInitialized(_this));
     _this.state = {
-      isLoggedIn: 0,
+      isLoggedIn: 3,
       correo: "",
       nombre: "",
       apellido: "",
@@ -52871,11 +52871,7 @@ function (_React$Component) {
     value: function fileUpload(dataUri) {
       axios__WEBPACK_IMPORTED_MODULE_5___default.a.post('/insert', {
         imagen: dataUri,
-        nombre: this.state.nombre,
-        apellido: this.state.apellido,
-        mensaje: this.state.mensaje,
-        estado: this.state.estado,
-        correo: this.state.correo
+        mensaje: this.state.mensaje
       }).then(function (response) {
         console.log(response.data);
       })["catch"](function (error) {
@@ -53069,8 +53065,6 @@ function Final(props) {
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "content__title-wrap-input"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "content__pretitle"
-  }, "Para: ", props.datauri.correo, "@uniandes.edu.co"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "content__input"
   }, props.datauri.mensaje)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "content__link",
@@ -53080,7 +53074,7 @@ function Final(props) {
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, {
-  isLoggedIn: 0
+  isLoggedIn: 3
 }), document.getElementById('app'));
 
 /***/ }),

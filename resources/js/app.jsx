@@ -36,7 +36,7 @@ class App extends React.Component {
 
     this.handleTakePhoto = this.handleTakePhoto.bind(this);
 
-    this.state = {isLoggedIn: 0,
+    this.state = {isLoggedIn: 3,
                   correo:"",
                   nombre:"",
                   apellido:"",
@@ -83,11 +83,7 @@ class App extends React.Component {
   fileUpload(dataUri) {
       axios.post('/insert', {
               imagen: dataUri,
-              nombre: this.state.nombre,
-              apellido: this.state.apellido,
               mensaje: this.state.mensaje,
-              estado: this.state.estado,
-              correo: this.state.correo
           })
           .then(function(response) {
               console.log(response.data);
@@ -243,7 +239,6 @@ function Final(props){
 					</div>
 				</div>
         <div className="content__title-wrap-input">
-          <span className="content__pretitle">Para: {props.datauri.correo}@uniandes.edu.co</span>
           <span className="content__input">{props.datauri.mensaje}</span>
           </div>
         <a className="content__link" href="..">ENVIAR</a>
@@ -255,6 +250,6 @@ function Final(props){
 export default App;
 
 
-ReactDOM.render( < App  isLoggedIn={0} / > ,
+ReactDOM.render( < App  isLoggedIn={3} / > ,
     document.getElementById('app')
 );
