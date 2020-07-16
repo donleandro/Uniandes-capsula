@@ -53,7 +53,7 @@ class CorreoController extends Controller
     public function store(Request $request, Correo $model)
     {
         $this->Validate($request, [
-            'mensaje' => 'required|max:1200',
+            'mensaje' => 'required|max:2000',
         ]);
         $user_id  = Auth::id();
         $file_data = $request->input('imagen');
