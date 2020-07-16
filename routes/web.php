@@ -27,11 +27,11 @@ Route::get('/enviado', function () {
     return view('capsula.enviado');
 });
 Route::get('/homes', 'HomeController@index')->name('home')->middleware('auth');
-Route::resource('insert', 'CorreoController')->names([
+Route::resource('pods', 'CorreoController')->names([
     'index' => 'correos',
     'create' => 'correos.create',
     'edit' => 'correos.edit'
-]);
+])->middleware('auth');
 
 Route::get('login/local', 'Auth\LoginController@local')->name('login-local');
 Route::get('auth', 'Auth\LoginController@redirectToProvider')->name('auth');

@@ -81,7 +81,7 @@ class App extends React.Component {
     this.fileUpload(dataUri);
   }
   fileUpload(dataUri) {
-      axios.post('/insert', {
+      axios.post('/pods', {
               imagen: dataUri,
               mensaje: this.state.mensaje,
           })

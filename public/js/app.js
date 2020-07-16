@@ -52868,7 +52868,7 @@ function (_React$Component) {
   }, {
     key: "fileUpload",
     value: function fileUpload(dataUri) {
-      axios__WEBPACK_IMPORTED_MODULE_5___default.a.post('/insert', {
+      axios__WEBPACK_IMPORTED_MODULE_5___default.a.post('/pods', {
         imagen: dataUri,
         mensaje: this.state.mensaje
       }).then(function (response) {
