@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
+use Socialite;
+use App\User;
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -26,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/capsula';
 
     /**
      * Create a new controller instance.
@@ -37,4 +41,67 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('azure')->redirect();
+    }
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return \Illuminate\Http\Response
+     */
+     public function handleProviderCallback()
+     {
+         $user = Socialite::driver('azure')->user();
+
+         $givenName  =  explode(" ", $user->user["givenName"]);
+         $surname  =  explode(" ", $user->user["surname"]);
+         $email = $user->email;
+         $usuario = User::where('email',$user->email)->first();
+         if (!$usuario) {
+           $usuario = new User();
+           $usuario->name = $givenName[0];
+           $usuario->name2 = $givenName[1];
+           $usuario->surname = $surname[0];
+           $usuario->surname2 = $surname[1];
+           $usuario->email = $email;
+           $usuario->password = Hash::make('111111');
+           $usuario->save();
+         }
+         else{
+           $usuario->update(array(
+             'name' => $givenName[0],
+             'name2' => $givenName[1],
+             'surname' => $surname[0],
+             'surname2' => $surname[1],
+           ));
+         }
+         $user = User::where('email',$user->email)->first();
+         if ($user) {
+           Auth::login($user);
+           return redirect($this->redirectTo);
+         }
+         else{
+           session()->flash('message', 'Usuario no existe');
+           return redirect('login');
+         }
+     }
+
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function local()
+    {
+         return view('auth.login-local');
+    }
+
+
 }

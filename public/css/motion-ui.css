@@ -126,6 +126,10 @@ a:hover {
   z-index: 1000;
 }
 
+.frame__cam {
+  position: fixed !important;
+}
+
 .frame__title {
   font-size: 1rem;
   margin: 0 0 1rem;
@@ -231,9 +235,10 @@ a:hover {
 }
 
 .content__input {
+  display: inline-block;
   text-align: center;
   color: #FFFFFF;
-  font-size: 6vw;
+  font-size: 0.7rem;
   height: 6vw;
   width: 80vw;
   font-weight: 900;
@@ -271,7 +276,7 @@ a:hover {
 .content__input-caja {
   text-align: center;
   color: #FFFFFF;
-  font-size: 6vw;
+  font-size: 3vw;
   height: 50vh;
   width: 80vw;
   font-weight: 900;

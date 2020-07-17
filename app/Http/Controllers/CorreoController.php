@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class CorreoController extends Controller
 {
@@ -52,21 +53,15 @@ class CorreoController extends Controller
     public function store(Request $request, Correo $model)
     {
         $this->Validate($request, [
-            'mensaje' => 'required|max:600',
-            'correo' => 'required|max:20',
-            'nombre' => 'required|max:20',
-            'apellido' => 'required|max:20',
+            'mensaje' => 'required|max:2000',
         ]);
-
-
-        $user_id = $this->crearUsuario($request);
-
+        $user_id  = Auth::id();
         $file_data = $request->input('imagen');
         $image = $request->input('imagen'); // image base64 encoded
         preg_match("/data:image\/(.*?);/", $image, $image_extension); // extract the image extension
         $image = preg_replace('/data:image\/(.*?);base64,/', '', $image); // remove the type part
         $image = str_replace(' ', '+', $image);
-        $imageName = $request->input('correo') . '_' . time() . '.' . $image_extension[1]; //generating unique file name;
+        $imageName = 'Usuario-'. $user_id . '_' . time() . '.' . $image_extension[1]; //generating unique file name;
         Storage::disk('dropbox')->put($imageName, base64_decode($image));
 
         $response = $this->dropbox->createSharedLinkWithSettings(
@@ -89,25 +84,6 @@ class CorreoController extends Controller
         return response()->json([
           $model
       ]);
-    }
-    /**
-     * Crea los usuarios
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return int
-     */
-    public function crearUsuario(Request $request){
-      $email = $request->input('correo');
-      $user = User::where('email', "$email@uniandes.edu.co")->first();
-      if(!$user){
-        $user = new User;
-        $user->name = $request->input('nombre');
-        $user->surname = $request->input('apellido');
-        $user->email = "$email@uniandes.edu.co";
-        $user->password = '0';
-        $user->save();
-      }
-      return $user->id;
     }
     /**
      * Muestra el formulario para editar las firmas.

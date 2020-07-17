@@ -36,7 +36,7 @@ class App extends React.Component {
 
     this.handleTakePhoto = this.handleTakePhoto.bind(this);
 
-    this.state = {isLoggedIn: 0,
+    this.state = {isLoggedIn: 3,
                   correo:"",
                   nombre:"",
                   apellido:"",
@@ -81,13 +81,9 @@ class App extends React.Component {
     this.fileUpload(dataUri);
   }
   fileUpload(dataUri) {
-      axios.post('/insert', {
+      axios.post('/pods', {
               imagen: dataUri,
-              nombre: this.state.nombre,
-              apellido: this.state.apellido,
               mensaje: this.state.mensaje,
-              estado: this.state.estado,
-              correo: this.state.correo
           })
           .then(function(response) {
               console.log(response.data);
@@ -118,7 +114,7 @@ class App extends React.Component {
       return (
         <main>
           <div className="content">
-            <div className="frame">
+            <div className="frame frame__cam">
               <div className="frame__demos">
                 <div className="frame__demo fondo-amarillo">Solo tienes una oportunidad para tomar la foto.</div>
               </div>
@@ -243,7 +239,6 @@ function Final(props){
 					</div>
 				</div>
         <div className="content__title-wrap-input">
-          <span className="content__pretitle">Para: {props.datauri.correo}@uniandes.edu.co</span>
           <span className="content__input">{props.datauri.mensaje}</span>
           </div>
         <a className="content__link" href="..">ENVIAR</a>
@@ -255,6 +250,6 @@ function Final(props){
 export default App;
 
 
-ReactDOM.render( < App  isLoggedIn={0} / > ,
+ReactDOM.render( < App  isLoggedIn={3} / > ,
     document.getElementById('app')
 );
