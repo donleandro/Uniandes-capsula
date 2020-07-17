@@ -62,6 +62,7 @@ class LoginController extends Controller
          $givenName  =  explode(" ", $user->user["givenName"]);
          $surname  =  explode(" ", $user->user["surname"]);
          $email = $user->email;
+         dd($user);
          $usuario = User::where('email',$user->email)->first();
          if (!$usuario) {
            $usuario = new User();
