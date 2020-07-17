@@ -63,13 +63,13 @@ class LoginController extends Controller
          $surname  =  explode(" ", $user->user["surname"]);
          $email = $user->email;
          $usuario = User::where('email',$user->email)->first();
-         dd($givenName[1]);
+         // dd($givenName);
          if (!$usuario) {
            $usuario = new User();
            $usuario->name = $givenName[0];
-           $usuario->name2 = $givenName[1];
+           $usuario->name2 = isset($givenName[1]) ? $givenName[1] : "";
            $usuario->surname = $surname[0];
-           $usuario->surname2 = $surname[1];
+           $usuario->surname2 = isset($surname[1]) ? $surname[1] : "";
            $usuario->email = $email;
            $usuario->password = Hash::make('111111');
            $usuario->save();
@@ -77,9 +77,9 @@ class LoginController extends Controller
          else{
            $usuario->update(array(
              'name' => $givenName[0],
-             'name2' => $givenName[1],
+             'name2' => isset($givenName[1]) ? $givenName[1] : "",
              'surname' => $surname[0],
-             'surname2' => $surname[1],
+             'surname2' => isset($surname[1]) ? $surname[1] : "",
            ));
          }
          $user = User::where('email',$user->email)->first();
