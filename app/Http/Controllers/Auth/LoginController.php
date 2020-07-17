@@ -59,27 +59,26 @@ class LoginController extends Controller
      public function handleProviderCallback()
      {
          $user = Socialite::driver('azure')->user();
-
          $givenName  =  explode(" ", $user->user["givenName"]);
          $surname  =  explode(" ", $user->user["surname"]);
          $email = $user->email;
          $usuario = User::where('email',$user->email)->first();
          if (!$usuario) {
            $usuario = new User();
-           $usuario->name = $givenName[0];
-           $usuario->name2 = $givenName[1];
-           $usuario->surname = $surname[0];
-           $usuario->surname2 = $surname[1];
+           $usuario->name = isset($givenName[0]) ? $givenName[0] : "Usuario";
+           $usuario->name2 = isset($givenName[1]) ? $givenName[1] : " ";
+           $usuario->surname = isset($surname[0]) ? $surname[0] : "Visitante";
+           $usuario->surname2 = isset($surname[1]) ? $surname[1] : " ";
            $usuario->email = $email;
-           $usuario->password = Hash::make('111111');
+           $usuario->password = "nulo";
            $usuario->save();
          }
          else{
            $usuario->update(array(
              'name' => $givenName[0],
-             'name2' => $givenName[1],
+             'name2' => isset($givenName[1]) ? $givenName[1] : "",
              'surname' => $surname[0],
-             'surname2' => $surname[1],
+             'surname2' => isset($surname[1]) ? $surname[1] : "",
            ));
          }
          $user = User::where('email',$user->email)->first();
@@ -102,6 +101,21 @@ class LoginController extends Controller
     {
          return view('auth.login-local');
     }
+    /**
+     * Log the user out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
 
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return $this->loggedOut($request) ?: redirect('/login');
+    }
 
 }
