@@ -65,12 +65,12 @@ class LoginController extends Controller
          $usuario = User::where('email',$user->email)->first();
          if (!$usuario) {
            $usuario = new User();
-           $usuario->name = $givenName[0];
-           $usuario->name2 = isset($givenName[1]) ? $givenName[1] : "";
-           $usuario->surname = $surname[0];
-           $usuario->surname2 = isset($surname[1]) ? $surname[1] : "";
+           $usuario->name = isset($givenName[0]) ? $givenName[0] : "Visitante";
+           $usuario->name2 = isset($givenName[1]) ? $givenName[1] : " ";
+           $usuario->surname = isset($surname[0]) ? $surname[0] : "Visitante";
+           $usuario->surname2 = isset($surname[1]) ? $surname[1] : " ";
            $usuario->email = $email;
-           $usuario->password = Hash::make('111111');
+           $usuario->password = "nulo";
            $usuario->save();
          }
          else{
