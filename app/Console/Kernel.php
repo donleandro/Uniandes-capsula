@@ -2,8 +2,13 @@
 
 namespace App\Console;
 
+use App\User;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Notifications\Notifiable;
+use App\Notifications\EnviarPod;
+use Illuminate\Support\Facades\Notification;
+
 
 class Kernel extends ConsoleKernel
 {
@@ -24,10 +29,16 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+      $schedule->call(function () {
+        $this->enviarPods();
+          //
+      })->everyMinute();
     }
 
+    public function enviarPods(){
+        $users = User::where('name', "Leandro")->get();
+        Notification::send($users, new EnviarPod());
+    }
     /**
      * Register the commands for the application.
      *

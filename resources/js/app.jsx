@@ -241,7 +241,7 @@ function Final(props){
         <div className="content__title-wrap-input">
           <span className="content__input">{props.datauri.mensaje}</span>
           </div>
-        <a className="content__link" href="..">ENVIAR</a>
+        <a className="content__link" href="/enviado">ENVIAR</a>
 			</div>
 		</main>
   );

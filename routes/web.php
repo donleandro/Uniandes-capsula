@@ -25,7 +25,7 @@ Route::get('/info', function () {
 // });
 Route::get('/enviado', function () {
     return view('capsula.enviado');
-});
+})->name('enviado');
 Route::get('/homes', 'HomeController@index')->name('home')->middleware('auth');
 Route::resource('pods', 'CorreoController')->names([
     'index' => 'correos',
