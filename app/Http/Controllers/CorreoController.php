@@ -68,7 +68,6 @@ class CorreoController extends Controller
             $imageName,
             ["requested_visibility" => "public"]
         );
-        dd($response);
         $mensaje = $request->input('mensaje');
         $estado = $request->input('estado');
 
@@ -77,7 +76,7 @@ class CorreoController extends Controller
                 'fecha_creacion' => time(),
                 'mensaje' => $mensaje,
                 'usuario_id' => $user_id,
-                'imagen' => $response['url'],
+                'imagen' => $response,
                 'estado' => $estado
             ]
         );
