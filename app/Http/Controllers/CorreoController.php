@@ -71,7 +71,7 @@ class CorreoController extends Controller
 
         $mensaje = $request->input('mensaje');
         $estado = $request->input('estado');
-        dd($response);
+        return response()->json([$response]);
         $model->create(
             [
                 'fecha_creacion' => time(),
