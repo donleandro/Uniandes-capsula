@@ -65,7 +65,7 @@ class Kernel extends ConsoleKernel
           $fecha  = new Carbon($pod->created_at);
           return $fecha->diffInDays($hoy)<1;
         });
-        dd(Storage::disk('dropbox')->download('https://www.dropbox.com/s/xn6ms6y9li82kl1/lea_1579029427.png?dl=0'));
+        dd(Storage::disk('dropbox')->search('https://www.dropbox.com/s/xn6ms6y9li82kl1/lea_1579029427.png?dl=0'));
         foreach ($podsHoy as $pod) {
           $usuario = User::where('id', $pod->usuario_id)->first();
           // Notification::send($usuario, new EnviarPod( $pod ));
