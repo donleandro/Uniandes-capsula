@@ -120,9 +120,7 @@ img {
 /* Body */
 
 .body {
-    background-color: #ffffff;
-    border-bottom: 1px solid #edeff2;
-    border-top: 1px solid #edeff2;
+    background-color: #000;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -197,6 +195,7 @@ img {
 
 .content-cell {
     padding: 35px;
+    background-color: black;
 }
 
 /* Buttons */

@@ -6,6 +6,9 @@
 </head>
 <body>
 <style>
+.wrapper{
+  background-color: black;
+}
 @media only screen and (max-width: 600px) {
 .inner-body {
 width: 100% !important;
@@ -40,7 +43,13 @@ width: 100% !important;
 
 {{ $subcopy ?? '' }}
 </td>
+<td class="content-cell">
+{{ Illuminate\Mail\Markdown::parse($slot) }}
+
+{{ $subcopy ?? '' }}
+</td>
 </tr>
+
 </table>
 </td>
 </tr>
