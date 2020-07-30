@@ -68,15 +68,16 @@ class CorreoController extends Controller
             $imageName,
             ["requested_visibility" => "public"]
         );
+
         $mensaje = $request->input('mensaje');
         $estado = $request->input('estado');
-
+        dd($response);
         $model->create(
             [
                 'fecha_creacion' => time(),
                 'mensaje' => $mensaje,
                 'usuario_id' => $user_id,
-                'imagen' => $response['path'],
+                'imagen' => $response['url'],
                 'estado' => $estado
             ]
         );
