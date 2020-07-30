@@ -76,7 +76,7 @@ class CorreoController extends Controller
                 'fecha_creacion' => time(),
                 'mensaje' => $mensaje,
                 'usuario_id' => $user_id,
-                'imagen' => $response,
+                'imagen' => $response['path'],
                 'estado' => $estado
             ]
         );
