@@ -3,11 +3,15 @@
 namespace App\Console;
 
 use App\User;
+use App\Correo;
+
+use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\EnviarPod;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Collection;
 
 
 class Kernel extends ConsoleKernel
@@ -36,8 +40,35 @@ class Kernel extends ConsoleKernel
     }
 
     public function enviarPods(){
-        $users = User::where('name', "Leandro")->get();
-        Notification::send($users, new EnviarPod());
+      //TODO
+      //Buscar pod con correo de hace 1 año. Comparar con la fecha actual...
+      //enviar esos correos
+      //editar vista del capsulecorp
+        $hoy = Carbon::now();
+        $hoy->subDays(230);
+        // dd($hoy->year);
+        $pods = Correo::whereYear('created_at',$hoy->year)
+                        ->whereMonth('created_at',$hoy->month)
+                        ->whereDay('created_at','>',$hoy->day)
+                        ->get();
+        // dd($pods);
+        $podsHoy = $pods->filter(function ($pod){
+          $hoy = Carbon::now();
+          $hoy->subDays(216);
+          $fecha  = new Carbon($pod->created_at);
+          return $fecha->diffInDays($hoy)<1;
+        });
+        foreach ($podsHoy as $pod) {
+          $usuario = User::where('id', $pod->usuario_id)->first();
+          Notification::send($usuario, new EnviarPod( $pod ));
+        }
+        // $date = Carbon::now();
+        // print_r($date);
+        // $fecha  = new Carbon($pods->created_at);
+        // $fecha->addDays(215);
+        // print_r($fecha);
+        // dd($fecha->diffInDays($date));
+
     }
     /**
      * Register the commands for the application.

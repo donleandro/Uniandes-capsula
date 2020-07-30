@@ -2,6 +2,8 @@
 
 namespace App\Notifications;
 
+
+use App\Correo;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -16,7 +18,7 @@ class EnviarPod extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct( $pod )
     {
         //
     }
