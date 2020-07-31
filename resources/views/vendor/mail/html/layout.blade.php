@@ -39,9 +39,8 @@ width: 100% !important;
 <!-- Body content -->
 <tr>
 <td class="content-cell">
-{{ Illuminate\Mail\Markdown::parse($slot) }}
-
-{{ $subcopy ?? '' }}
+  {{dd($this)}}
+  <img src="{{ asset('storage/'.$this->lastCompiledData[0]['data']['actionText']) }}" />
 </td>
 <td class="content-cell">
 {{ Illuminate\Mail\Markdown::parse($slot) }}

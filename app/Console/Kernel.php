@@ -51,34 +51,29 @@ class Kernel extends ConsoleKernel
       //Buscar pod con correo de hace 1 año. Comparar con la fecha actual...
       //enviar esos correos
       //editar vista del capsulecorp
-        $hoy = Carbon::now();
-        $hoy->subDays(230);
+        // $hoy = Carbon::now();
+        $hoy = Carbon::createFromFormat('Y/m/d H:i:s',  '2021/01/14 19:17:11');
+        $hoy->subDays(365);
         // dd($hoy->year);
         $pods = Correo::whereYear('created_at',$hoy->year)
                         ->whereMonth('created_at',$hoy->month)
-                        ->whereDay('created_at','>',$hoy->day)
+                        ->whereDay('created_at','=',$hoy->day)
                         ->get();
-        // dd($pods);
-        $podsHoy = $pods->filter(function ($pod){
-          $hoy = Carbon::now();
-          $hoy->subDays(216);
-          $fecha  = new Carbon($pod->created_at);
-          return $fecha->diffInDays($hoy)<1;
-        });
-        // download('home/Aplicaciones/CapsulaDelTiempoUniandes/lea_1579029427.png'
-        // dd(Storage::disk('dropbox')->get('https://www.dropbox.com/s/xn6ms6y9li82kl1/lea_1579029427.png?dl=0'));
-        dd(Storage::disk('dropbox')->get('/lea_1579029427.png'));
-        foreach ($podsHoy as $pod) {
-          $usuario = User::where('id', $pod->usuario_id)->first();
-          Notification::send($usuario, new EnviarPod( $pod ));
-        }
-        // $date = Carbon::now();
-        // print_r($date);
-        // $fecha  = new Carbon($pods->created_at);
-        // $fecha->addDays(215);
-        // print_r($fecha);
-        // dd($fecha->diffInDays($date));
 
+        foreach ($pods as $capsula) {
+          $rutaImg = explode('/',$capsula->imagen);
+
+          if( $rutaImg[0] != 'https:'){
+            continue;
+          }
+          $rutaImg  = explode( '?' , $rutaImg[5] );
+          $rutaImg = $rutaImg[0];
+          $image =Storage::disk('dropbox')->get($rutaImg);
+          Storage::disk('local')->put('public/'.$rutaImg, $image);
+          $usuario = User::where('id', $capsula->usuario_id)->first();
+          print_r($rutaImg);
+          Notification::send($usuario, new EnviarPod( $capsula , $rutaImg ));
+        }
     }
     /**
      * Register the commands for the application.
