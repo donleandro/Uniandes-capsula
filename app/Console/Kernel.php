@@ -71,7 +71,6 @@ class Kernel extends ConsoleKernel
           $image =Storage::disk('dropbox')->get($rutaImg);
           Storage::disk('local')->put('public/'.$rutaImg, $image);
           $usuario = User::where('id', $capsula->usuario_id)->first();
-          print_r($rutaImg);
           Notification::send($usuario, new EnviarPod( $capsula , $rutaImg ));
         }
     }

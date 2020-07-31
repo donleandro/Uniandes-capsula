@@ -50,7 +50,7 @@ class EnviarPod extends Notification
         return (new MailMessage)
                     ->line('Un mensaje de tu "yo" del pasado...')
                     ->line('Ha viajado en el tiempo y llega a ti un año después...')
-                    ->action($this->image, url('/'))
+                    ->action($this->image, url(\Config::get('app.url')."/storage/".$this->image))
                     ->line($this->pod->mensaje);
     }
 
