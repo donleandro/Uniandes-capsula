@@ -8,11 +8,9 @@ use App\Correo;
 use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Illuminate\Notifications\Notifiable;
-use App\Notifications\EnviarPod;
-use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Collection;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CapsulaMjml;
 
 use Illuminate\Http\File;
 use Spatie\Dropbox\Client;
@@ -71,7 +69,8 @@ class Kernel extends ConsoleKernel
           $image =Storage::disk('dropbox')->get($rutaImg);
           Storage::disk('local')->put('public/'.$rutaImg, $image);
           $usuario = User::where('id', $capsula->usuario_id)->first();
-          Notification::send($usuario, new EnviarPod( $capsula , $rutaImg ));
+
+          Mail::to($usuario)->send(new CapsulaMjml( $rutaImg ));
         }
     }
     /**
