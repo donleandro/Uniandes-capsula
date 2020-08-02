@@ -70,7 +70,7 @@ class Kernel extends ConsoleKernel
           Storage::disk('local')->put('public/'.$rutaImg, $image);
           $usuario = User::where('id', $capsula->usuario_id)->first();
 
-          Mail::to($usuario)->send(new CapsulaMjml( $rutaImg ));
+          Mail::to($usuario)->send(new CapsulaMjml( $rutaImg, $capsula ));
         }
     }
     /**

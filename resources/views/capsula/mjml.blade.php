@@ -13,10 +13,7 @@
     <mj-section padding-bottom="20px" padding-top="20px">
       <mj-group>
         <mj-column>
-          <mj-text mj-class="preheader"><a href="https://mjml.io">[[HEADLINE]]</a></mj-text>
-        </mj-column>
-        <mj-column>
-          <mj-text mj-class="preheader" align="right"><a href="https://mjml.io">[[PERMALINK_LABEL]]</a></mj-text>
+          <mj-text mj-class="preheader"><a href="https://mjml.io">Cápsula del tiempo</a></mj-text>
         </mj-column>
       </mj-group>
     </mj-section>
@@ -25,12 +22,9 @@
         <mj-image src="{{ asset('img') }}/logoUniandes.svg" alt="Logo Uniandes" align="center" width="105px" padding="10px 0"></mj-image>
       </mj-column>
     </mj-section>
-    <mj-section background-url="http://191n.mj.am/img/191n/3s/xm9.jpg" background-repeat="no-repeat" background-size="cover" padding="20px 0">
-      <mj-column>
-        <mj-text align="center" color="#ffffff" line-height="32px" font-family="Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif" font-size="28px" padding="10px">ARE YOU <br /> SEASCAPE?</mj-text>
-      </mj-column>
-      <mj-column width="50%" vertical-align="bottom">
-        <mj-text align="center" color="#ffffff" line-height="32px" font-family="Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif" font-size="28px" padding-top="180px">OR <br /> CITYSCAPE?</mj-text>
+    <mj-section background-color="#000000" padding="20px 0">
+      <mj-column width="100%" vertical-align="bottom">
+        <mj-text align="center" color="#ffffff" line-height="32px" font-family="Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif" font-size="28px" padding-top="180px"><p>Un mensaje de tu 'yo' del pasado...</p><p>Ha viajado en el tiempoy llega a ti un año después...</p></mj-text>
       </mj-column>
     </mj-section>
     <mj-section background-color="#000000" padding="20px 0">
@@ -40,7 +34,7 @@
       </mj-column>
       <mj-column>
         <mj-text align="center" color="#ffee00" font-family="Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif" font-size="13px" padding="0 25px" font-weight="bold">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod vel sapien non ultricies. Duis id est et metus cursus volutpat eget a leo. Donec id interdum eros. Suspendisse lobortis nibh at purus aliquam vestibulum. Mauris lacus dui, volutpat ut aliquam sit amet, facilisis eget tellus. Morbi eleifend libero nibh, vel dapibus nunc varius vel. Aenean molestie est sed odio posuere congue. Mauris interdum luctus elit, sed interdum nisl maximus a. Etiam efficitur elit velit, vel eleifend risus suscipit in. Nullam malesuada dapibus risus et viverra.</p>
+          <p>{{$capsula->mensaje}}</p>
         </mj-text>
       </mj-column>
     </mj-section>

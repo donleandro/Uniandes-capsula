@@ -11,15 +11,17 @@ class CapsulaMjml extends Mailable
 {
     use Queueable, SerializesModels;
     private $image;
+    private $capsula;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($image)
+    public function __construct($image,$capsula)
     {
       $this->image  = $image;
+      $this->capsula = $capsula;
     }
 
     /**
@@ -32,6 +34,7 @@ class CapsulaMjml extends Mailable
         return $this->mjml('capsula.mjml')
                     ->with([
                                     'image' => $this->image,
+                                    'capsula' => $this->capsula,
                                 ]);
     }
 }
