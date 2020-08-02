@@ -29,13 +29,13 @@
     </mj-section>
     <mj-section background-color="#000000" padding="20px 0">
       <mj-column>
-        <mj-image src="{{asset('storage/' . $image)}}" alt="Maldives, Corse : -15%" width="240px"></mj-image>
-        <mj-button mj-class="cta" background-color="#222">Verlo en el explorador</mj-button>
-      </mj-column>
-      <mj-column>
         <mj-text align="center" color="#ffee00" font-family="Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif" font-size="18px" padding="0 25px" font-weight="bold">
           <p>{{$capsula->mensaje}}</p>
         </mj-text>
+      </mj-column>
+      <mj-column>
+        <mj-image src="{{asset('storage/' . $image)}}" alt="Maldives, Corse : -15%" width="240px"></mj-image>
+        <mj-button mj-class="cta" background-color="#222">Verlo en el explorador</mj-button>
       </mj-column>
     </mj-section>
     <mj-section background-color="#000">
