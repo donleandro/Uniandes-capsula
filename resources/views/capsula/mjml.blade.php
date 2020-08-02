@@ -13,24 +13,24 @@
     <mj-section padding-bottom="10px" padding-top="10px">
       <mj-group>
         <mj-column>
-          <mj-text mj-class="preheader"><a href="https://mjml.io">Cápsula del tiempo</a></mj-text>
+          <mj-text mj-class="preheader"><a href="https://capsula.uniandes.edu.co">La Cápsula del tiempo</a></mj-text>
         </mj-column>
       </mj-group>
     </mj-section>
     <mj-section background-color="#000000">
       <mj-column>
-        <mj-image src="{{ asset('img') }}/logoUniandes.svg" alt="Logo Uniandes" align="center" width="105px"></mj-image>
+        <mj-image src="{{asset('img/logoUniandes.png')}}" alt="Logo Uniandes" align="center" width="105px"></mj-image>
       </mj-column>
     </mj-section>
     <mj-section background-color="#000000" padding="10px 0">
       <mj-column width="100%" vertical-align="bottom">
-        <mj-text align="center" color="#ffffff" line-height="32px" font-family="Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif" font-size="18px" padding-top="180px"><p>Un mensaje de tu 'yo' del pasado...</p><p>Ha viajado en el tiempo y llega a ti un año después...</p></mj-text>
+        <mj-text align="center" color="#ffffff" font-family="Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif" font-size="18px"><p>Un mensaje de tu 'yo' del pasado...</p><p>Ha viajado en el tiempo y llega a ti un año después...</p></mj-text>
       </mj-column>
     </mj-section>
     <mj-section background-color="#000000" padding="20px 0">
       <mj-column>
         <mj-image src="{{asset('storage/' . $image)}}" alt="Maldives, Corse : -15%" width="240px"></mj-image>
-        <mj-button mj-class="cta" background-color="#bd8714">Verlo en el explorador</mj-button>
+        <mj-button mj-class="cta" background-color="#222">Verlo en el explorador</mj-button>
       </mj-column>
       <mj-column>
         <mj-text align="center" color="#ffee00" font-family="Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif" font-size="18px" padding="0 25px" font-weight="bold">
@@ -38,21 +38,16 @@
         </mj-text>
       </mj-column>
     </mj-section>
-    <mj-section background-color="#4395b1">
+    <mj-section background-color="#000">
       <mj-column width="33.33333333333333%">
-        <mj-image src="http://191n.mj.am/img/191n/3s/x1l.png" alt="Call us : 0 800 123 456" width="97px" padding="10px 25px"></mj-image>
+        <mj-image src="{{asset('img/logoUniandes.png')}}" alt="Call us : 0 800 123 456" width="97px" padding="10px 25px"></mj-image>
       </mj-column>
-      <mj-column width="33.33333333333333%">
-        <mj-image href="https://mjml.io" src="http://191n.mj.am/img/191n/3s/x1m.png" alt="Meet us : find an agency" width="117px" padding="10px 25px"></mj-image>
-      </mj-column>
-      <mj-column width="33.33333333333333%">
-        <mj-image href="https://mjml.io" src="http://191n.mj.am/img/191n/3s/xs0.png" alt="ASK US : find an expert" width="110px" padding="10px 25px"></mj-image>
-      </mj-column>
+
     </mj-section>
     <mj-section padding="20px 0">
       <mj-column>
-        <mj-text align="center" color="#000000" font-size="11px">[[DELIVERY_INFO]]
-          <p>[[POSTAL_ADDRESS]]</p>
+        <mj-text align="center" color="#777" font-size="11px">Universidad de los Andes, Colombia
+          <p>DSIT</p>
         </mj-text>
       </mj-column>
     </mj-section>
