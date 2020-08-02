@@ -10,7 +10,7 @@
     <mj-style inline="inline">a { text-decoration: none; color: inherit; }</mj-style>
   </mj-head>
   <mj-body background-color="#000000">
-    <mj-section padding-bottom="20px" padding-top="20px">
+    <mj-section padding-bottom="10px" padding-top="10px">
       <mj-group>
         <mj-column>
           <mj-text mj-class="preheader"><a href="https://mjml.io">Cápsula del tiempo</a></mj-text>
@@ -19,12 +19,12 @@
     </mj-section>
     <mj-section background-color="#000000">
       <mj-column>
-        <mj-image src="{{ asset('img') }}/logoUniandes.svg" alt="Logo Uniandes" align="center" width="105px" padding="10px 0"></mj-image>
+        <mj-image src="{{ asset('img') }}/logoUniandes.svg" alt="Logo Uniandes" align="center" width="105px"></mj-image>
       </mj-column>
     </mj-section>
-    <mj-section background-color="#000000" padding="20px 0">
+    <mj-section background-color="#000000" padding="10px 0">
       <mj-column width="100%" vertical-align="bottom">
-        <mj-text align="center" color="#ffffff" line-height="32px" font-family="Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif" font-size="28px" padding-top="180px"><p>Un mensaje de tu 'yo' del pasado...</p><p>Ha viajado en el tiempoy llega a ti un año después...</p></mj-text>
+        <mj-text align="center" color="#ffffff" line-height="32px" font-family="Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif" font-size="18px" padding-top="180px"><p>Un mensaje de tu 'yo' del pasado...</p><p>Ha viajado en el tiempo y llega a ti un año después...</p></mj-text>
       </mj-column>
     </mj-section>
     <mj-section background-color="#000000" padding="20px 0">
@@ -33,7 +33,7 @@
         <mj-button mj-class="cta" background-color="#bd8714">Verlo en el explorador</mj-button>
       </mj-column>
       <mj-column>
-        <mj-text align="center" color="#ffee00" font-family="Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif" font-size="13px" padding="0 25px" font-weight="bold">
+        <mj-text align="center" color="#ffee00" font-family="Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif" font-size="18px" padding="0 25px" font-weight="bold">
           <p>{{$capsula->mensaje}}</p>
         </mj-text>
       </mj-column>
