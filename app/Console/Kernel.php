@@ -56,6 +56,7 @@ class Kernel extends ConsoleKernel
         $pods = Correo::whereYear('created_at',$hoy->year)
                         ->whereMonth('created_at',$hoy->month)
                         ->whereDay('created_at','=',$hoy->day)
+                        ->where('estado','!=',2)
                         ->get();
 
         foreach ($pods as $capsula) {
@@ -66,8 +67,9 @@ class Kernel extends ConsoleKernel
           }
           $usuario = User::where('id', $capsula->usuario_id)->first();
 
-          $resp = Mail::to($usuario)->send(new CapsulaMjml( $rutaImg, $capsula ));
-          dd($resp);
+          Mail::to($usuario)->send(new CapsulaMjml( $rutaImg, $capsula ));
+          $capsula->estado = 2;
+          $capsula->save();
         }
     }
     /**
