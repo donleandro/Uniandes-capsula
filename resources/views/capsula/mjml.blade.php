@@ -35,7 +35,7 @@
       </mj-column>
       <mj-column>
         <mj-image src="{{asset('storage/' . $image)}}" alt="Maldives, Corse : -15%" width="240px"></mj-image>
-        <mj-button href="{{route('pods')}}/{{$capsula->id}}" mj-class="cta" background-color="#222">Verlo en el explorador</mj-button>
+        <mj-button href="{{route('pods.host')}}/{{$capsula->id}}" mj-class="cta" background-color="#222">Verlo en el explorador</mj-button>
       </mj-column>
     </mj-section>
     <mj-section background-color="#000">
