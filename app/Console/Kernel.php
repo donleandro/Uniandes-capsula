@@ -66,7 +66,8 @@ class Kernel extends ConsoleKernel
           }
           $usuario = User::where('id', $capsula->usuario_id)->first();
 
-          Mail::to($usuario)->send(new CapsulaMjml( $rutaImg, $capsula   ));
+          $resp = Mail::to($usuario)->send(new CapsulaMjml( $rutaImg, $capsula ));
+          dd($resp);
         }
     }
     /**
