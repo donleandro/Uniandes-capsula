@@ -68,6 +68,7 @@ class Kernel extends ConsoleKernel
 
           Mail::to($usuario)->send(new CapsulaMjml( $rutaImg, $capsula ));
           $capsula->estado = 2;
+          dd($capsula);
           $capsula->save();
         }
     }
