@@ -59,15 +59,9 @@ class Kernel extends ConsoleKernel
                         ->get();
 
         foreach ($pods as $capsula) {
-          $rutaImg = explode('/',$capsula->imagen);
-
-          if( $rutaImg[0] != 'https:'){
-            continue;
-          }
-          $rutaImg  = explode( '?' , $rutaImg[5] );
-          $rutaImg = $rutaImg[0];
+          $rutaImg  = $capsula->darRutaImagen();
           if( ! Storage::disk('local') -> exists('public/'.$rutaImg) ){
-            $image =Storage::disk('dropbox')->get($rutaImg);
+            $image = Storage::disk('dropbox')->get($rutaImg);
             Storage::disk('local')->put('public/'.$rutaImg, $image);
           }
           $usuario = User::where('id', $capsula->usuario_id)->first();

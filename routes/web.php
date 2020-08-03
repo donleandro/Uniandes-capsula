@@ -29,6 +29,7 @@ Route::get('/enviado', function () {
 Route::get('/homes', 'HomeController@index')->name('home')->middleware('auth');
 Route::resource('pods', 'CorreoController')->names([
     'index' => 'correos',
+    'host' => 'correos.show',
     'create' => 'correos.create',
     'edit' => 'correos.edit'
 ])->middleware('auth');

@@ -15,4 +15,14 @@ class Correo extends Model
     protected $fillable = [
             'mensaje', 'imagen', 'usuario_id', 'estado'
         ];
+
+    public function darRutaImagen(){
+      $rutaImg = explode( '/', $this->imagen );
+      if( $rutaImg[0] != 'https:'){
+        return null;
+      }
+      $rutaImg  = explode( '?' , $rutaImg[5] );
+      $rutaImg = $rutaImg[0];
+      return $rutaImg;
+    }
 }
