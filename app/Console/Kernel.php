@@ -41,7 +41,7 @@ class Kernel extends ConsoleKernel
       $schedule->call(function () {
         $this->enviarPods();
           //
-      })->everyMinute();
+      })->dailyAt('10:00');
     }
 
     public function enviarPods(){
@@ -49,10 +49,8 @@ class Kernel extends ConsoleKernel
       //Buscar pod con correo de hace 1 año. Comparar con la fecha actual...
       //enviar esos correos
       //editar vista del capsulecorp
-        // $hoy = Carbon::now();
-        $hoy = Carbon::createFromFormat('Y/m/d H:i:s',  '2021/01/14 19:17:11');
+        $hoy = Carbon::now();
         $hoy->subDays(365);
-        // dd($hoy->year);
         $pods = Correo::whereYear('created_at',$hoy->year)
                         ->whereMonth('created_at',$hoy->month)
                         ->whereDay('created_at','=',$hoy->day)
