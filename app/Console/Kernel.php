@@ -66,7 +66,7 @@ class Kernel extends ConsoleKernel
           }
           $rutaImg  = explode( '?' , $rutaImg[5] );
           $rutaImg = $rutaImg[0];
-          if( ! Storage::disk('local') -> exists('public/'.$rutaImg, $image) ){
+          if( ! Storage::disk('local') -> exists('public/'.$rutaImg) ){
             $image =Storage::disk('dropbox')->get($rutaImg);
             Storage::disk('local')->put('public/'.$rutaImg, $image);
           }
