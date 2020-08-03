@@ -67,10 +67,12 @@ class Kernel extends ConsoleKernel
           $rutaImg  = explode( '?' , $rutaImg[5] );
           $rutaImg = $rutaImg[0];
           $image =Storage::disk('dropbox')->get($rutaImg);
-          Storage::disk('local')->put('public/'.$rutaImg, $image);
+          if( ! Storage::disk('local') -> exists('public/'.$rutaImg, $image) ){
+            Storage::disk('local')->put('public/'.$rutaImg, $image);
+          }
           $usuario = User::where('id', $capsula->usuario_id)->first();
 
-          Mail::to($usuario)->send(new CapsulaMjml( $rutaImg, $capsula ));
+          Mail::to($usuario)->send(new CapsulaMjml( $rutaImg, $capsula   ));
         }
     }
     /**
