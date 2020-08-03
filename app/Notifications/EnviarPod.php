@@ -2,6 +2,8 @@
 
 namespace App\Notifications;
 
+
+use App\Correo;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -11,14 +13,18 @@ class EnviarPod extends Notification
 {
     use Queueable;
 
+    private $image;
+    private $pod;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct( $pod , $image)
     {
-        //
+        $this->image = $image;
+        $this->pod = $pod;
     }
 
     /**
@@ -40,10 +46,12 @@ class EnviarPod extends Notification
      */
     public function toMail($notifiable)
     {
+      // dd($this->image);
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line('Un mensaje de tu "yo" del pasado...')
+                    ->line('Ha viajado en el tiempo y llega a ti un año después...')
+                    ->action($this->image, url(\Config::get('app.url')."/storage/".$this->image))
+                    ->line($this->pod->mensaje);
     }
 
     /**

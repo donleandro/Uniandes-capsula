@@ -3,11 +3,20 @@
 namespace App\Console;
 
 use App\User;
+use App\Correo;
+
+use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Illuminate\Notifications\Notifiable;
-use App\Notifications\EnviarPod;
-use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CapsulaMjml;
+
+use Illuminate\Http\File;
+use Spatie\Dropbox\Client;
+
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 
 
 class Kernel extends ConsoleKernel
@@ -36,8 +45,29 @@ class Kernel extends ConsoleKernel
     }
 
     public function enviarPods(){
-        $users = User::where('name', "Leandro")->get();
-        Notification::send($users, new EnviarPod());
+      //TODO
+      //Buscar pod con correo de hace 1 año. Comparar con la fecha actual...
+      //enviar esos correos
+      //editar vista del capsulecorp
+        // $hoy = Carbon::now();
+        $hoy = Carbon::createFromFormat('Y/m/d H:i:s',  '2021/01/14 19:17:11');
+        $hoy->subDays(365);
+        // dd($hoy->year);
+        $pods = Correo::whereYear('created_at',$hoy->year)
+                        ->whereMonth('created_at',$hoy->month)
+                        ->whereDay('created_at','=',$hoy->day)
+                        ->get();
+
+        foreach ($pods as $capsula) {
+          $rutaImg  = $capsula->darRutaImagen();
+          if( ! Storage::disk('local') -> exists('public/'.$rutaImg) ){
+            $image = Storage::disk('dropbox')->get($rutaImg);
+            Storage::disk('local')->put('public/'.$rutaImg, $image);
+          }
+          $usuario = User::where('id', $capsula->usuario_id)->first();
+
+          Mail::to($usuario)->send(new CapsulaMjml( $rutaImg, $capsula   ));
+        }
     }
     /**
      * Register the commands for the application.
