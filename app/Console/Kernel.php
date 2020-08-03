@@ -56,7 +56,6 @@ class Kernel extends ConsoleKernel
         $pods = Correo::whereYear('created_at',$hoy->year)
                         ->whereMonth('created_at',$hoy->month)
                         ->whereDay('created_at','=',$hoy->day)
-                        ->where('estado','!=',2)
                         ->get();
 
         foreach ($pods as $capsula) {
