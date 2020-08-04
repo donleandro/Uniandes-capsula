@@ -12,13 +12,10 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <!-- CSS Files -->
     <link href="{{ asset('/css/motion-ui.css') }}" rel="stylesheet" />
-    <!-- <link href="{{ asset('/css/material-dashboard.css') }}" rel="stylesheet" /> -->
     </head>
-    <body class="{{ $class ?? '' }}">
+    <body class="">
 
       <div class="content">
-				<div class="frame">
-				</div>
 				<div class="content__title-wrap">
 					<h1 class="content__titled" style="font-size: 1.6em; color:var(--color-uniandes);">Un mensaje de tu 'yo' del pasado...</h2>
           <h2 class="content__titled" style="font-size: 1.6em; color:var(--color-uniandes);">Ha viajado en el tiempo y llega a ti un año después...</h3>
