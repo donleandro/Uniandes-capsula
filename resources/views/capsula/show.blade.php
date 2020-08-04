@@ -21,7 +21,7 @@
           <h2 class="content__titled" style="font-size: 1.6em; color:var(--color-uniandes);">Ha viajado en el tiempo y llega a ti un año después...</h3>
           <div class="frame__row">
             <div class="frame__mensaje">
-              <img class="frame__imagen" src="{{ asset('storage/'.$imagen) }}" />
+              {{--<img class="frame__imagen" src="{{ asset('storage/'.$imagen) }}" />--}}
             </div>
             <div class="frame__mensaje">
               {{--<p>{{$datos->mensaje}}</p>--}}
