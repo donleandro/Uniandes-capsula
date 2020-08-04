@@ -119,8 +119,9 @@ class CorreoController extends Controller
       $rutaImg;
       $user_id  = Auth::id();
       $capsula = Correo::where('id', $id)->first();
-      dd($capsula);
       if( $user_id  == $capsula->usuario_id ){
+        echo(".i.");
+        die();
         $rutaImg  = $capsula->darRutaImagen();
         if( ! Storage::disk('local') -> exists('public/'.$rutaImg) ){
           $image = Storage::disk('dropbox')->get($rutaImg);
