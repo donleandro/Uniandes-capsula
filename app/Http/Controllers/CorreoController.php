@@ -127,8 +127,8 @@ class CorreoController extends Controller
           $image = Storage::disk('dropbox')->get($rutaImg);
           Storage::disk('local')->put('public/'.$rutaImg, $image);
         }
-        return view('capsula.show', ['datos' => $capsula, 'imagen' => $rutaImg]);
+        // return view('capsula.show', ['datos' => $capsula, 'imagen' => $rutaImg]);
       }
-      return redirect('/');
+      // return redirect('/');
      }
 }
