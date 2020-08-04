@@ -116,17 +116,17 @@ class CorreoController extends Controller
     }
     public function show( $id )
     {
-      $rutaImg;
-      $user_id  = Auth::id();
-      $capsula = Correo::where('id', $id)->first();
-      if( $user_id  == $capsula->usuario_id ){
-        $rutaImg  = $capsula->darRutaImagen();
-        if( ! Storage::disk('local') -> exists('public/'.$rutaImg) ){
-          $image = Storage::disk('dropbox')->get($rutaImg);
-          Storage::disk('local')->put('public/'.$rutaImg, $image);
-        }
-        return view('capsula.show', ['datos' => $capsula, 'imagen' => $rutaImg]);
-      }
-      return redirect('/');
+      // $rutaImg;
+      // $user_id  = Auth::id();
+      // $capsula = Correo::where('id', $id)->first();
+      // if( $user_id  == $capsula->usuario_id ){
+      //   $rutaImg  = $capsula->darRutaImagen();
+      //   if( ! Storage::disk('local') -> exists('public/'.$rutaImg) ){
+      //     $image = Storage::disk('dropbox')->get($rutaImg);
+      //     Storage::disk('local')->put('public/'.$rutaImg, $image);
+      //   }
+      //   return view('capsula.show', ['datos' => $capsula, 'imagen' => $rutaImg]);
+      // }
+      // return redirect('/');
      }
 }
