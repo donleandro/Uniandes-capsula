@@ -24,11 +24,11 @@
               <img class="frame__imagen" src="{{ asset('storage/'.$imagen) }}" />
             </div>
             <div class="frame__mensaje">
-              <p>{{$datos->mensaje}}</p>
+              {{--<p>{{$datos->mensaje}}</p>--}}
             </div>
           </div>
 
-          <img class="logo-Uniandes" style="padding-top:20px; padding-bottom:20px; clear:both; display:block; margin:auto auto;" src="{{ asset('img') }}/logoUniandes.svg" width="20%" />
+          {{--<img class="logo-Uniandes" style="padding-top:20px; padding-bottom:20px; clear:both; display:block; margin:auto auto;" src="{{ asset('img') }}/logoUniandes.svg" width="20%" />--}}
           <h3 class="content__titled" style="">Gracias</h3>
 				</div>
 			</div>
