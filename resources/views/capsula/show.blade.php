@@ -35,6 +35,5 @@
           <h3 class="content__titled" style="">Gracias</h3>
 				</div>
 			</div>
-              @stack('js')
     </body>
 </html>
