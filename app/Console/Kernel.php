@@ -41,7 +41,7 @@ class Kernel extends ConsoleKernel
       $schedule->call(function () {
         $this->enviarPods();
           //
-      })->dailyAt('9:30');
+      })->dailyAt('10:20');
     }
 
     public function enviarPods(){
