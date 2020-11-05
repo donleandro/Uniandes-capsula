@@ -40,8 +40,7 @@ class Kernel extends ConsoleKernel
     {
       $schedule->call(function () {
         $this->enviarPods();
-          //
-      })->everyMinute();
+      })->dailyAt('10:20');
     }
 
     public function enviarPods(){
@@ -51,6 +50,7 @@ class Kernel extends ConsoleKernel
                       $query->where('created_at','<',$hoy);
                     })
                     ->whereNull('estado')
+                    ->orWhere('estado',1)
                     ->get();
         foreach ($pods as $capsula) {
           $rutaImg  = $capsula->darRutaImagen();
