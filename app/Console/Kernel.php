@@ -47,18 +47,11 @@ class Kernel extends ConsoleKernel
     public function enviarPods(){
         $hoy = today();
         $hoy->subDays(365);
-        echo $hoy;
         $pods = Correo::Where(function($query) use($hoy){
                       $query->where('created_at','<',$hoy);
                     })
                     ->whereNull('estado')
                     ->get();
-        dd($pods);
-        $pods = Correo::whereYear('created_at',$hoy->year)
-                        ->whereMonth('created_at',$hoy->month)
-                        ->whereDay('created_at','=',$hoy->day)
-                        ->whereNull('estado')
-                        ->get();
         foreach ($pods as $capsula) {
           $rutaImg  = $capsula->darRutaImagen();
           if( ! Storage::disk('local') -> exists('public/'.$rutaImg) ){
