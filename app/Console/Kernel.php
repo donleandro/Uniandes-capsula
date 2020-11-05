@@ -41,7 +41,7 @@ class Kernel extends ConsoleKernel
       $schedule->call(function () {
         $this->enviarPods();
           //
-      })->dailyAt('10:20');
+      })->everyMinute();
     }
 
     public function enviarPods(){
@@ -52,7 +52,7 @@ class Kernel extends ConsoleKernel
                         ->whereDay('created_at','=',$hoy->day)
                         ->whereNull('estado')
                         ->get();
-
+        dd($pods);
         foreach ($pods as $capsula) {
           $rutaImg  = $capsula->darRutaImagen();
           if( ! Storage::disk('local') -> exists('public/'.$rutaImg) ){
