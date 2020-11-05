@@ -47,8 +47,9 @@ class Kernel extends ConsoleKernel
     public function enviarPods(){
         $hoy = today();
         $hoy->subDays(365);
+        echo $hoy;
         $pods = Correo::Where(function($query) use($hoy){
-                      $query->where('created_at','>',$hoy);
+                      $query->where('created_at','<',$hoy);
                     })
                     ->whereNull('estado')
                     ->get();
